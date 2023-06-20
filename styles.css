@@ -48,3 +48,10 @@ input[type=submit]:hover {
 #slots {
     display: none;
 }
+
+#slots tr td {
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}

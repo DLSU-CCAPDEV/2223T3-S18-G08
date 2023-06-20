@@ -22,8 +22,6 @@ function checkLogin(){
 
 var slots = new Array();
 
-
-
 function makeArray(d, h, w) {
     for(i=0;i<d;i++){
         slots[i] = new Array();
@@ -34,45 +32,19 @@ function makeArray(d, h, w) {
             }
         }
     }
-    //slots[0][0][0]=1;
-
-
-
-    // for(let i = 0; i < h; i++) {
-    //     arr[i] = [];
-    //     for(let j = 0; j < w; j++) {
-    //         for(let k = 0; k < d; j++) {
-    //             arr[i][j][k] = val;
-    //         }
-    //         arr[i][j] = val;
-    //     }
-    // }
-    // return arr;
 }
 
-/*
-for (i = 0; i < 3; i++){
-    for(j = 0; j < 8; j++){
-        for(k = 0; k < 20; k++){
-            slots[i][j].append(Math.floor(Math.random() * 2));
-        }
-    }
-}
-*/
-function displaySlots(labnumber, daynumber){
-    document.write(labnumber);
-    displayslots = slots[labnumber-1][daynumber];
+function displaySlots(){
+    var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value];
     table = document.getElementById("slots");
-    /*
+   
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
-            table[i].innerHTML = "Free";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Free";
         } else {
-            table[i].innerHTML = "Taken";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Taken";
         }
     }
-    */
     
     document.getElementById("slots").style.display = "block";
-
 }
