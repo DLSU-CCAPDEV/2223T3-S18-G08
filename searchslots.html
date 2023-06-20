@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> View Slots </title>
+        <title> Search Free Slots </title>
         <script type="text/javascript" src="scripts.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 
     <body onload='makeArray(3,9,12,20);'>
         <h1>
-            View slots
+            Search free slots
         </h1>
+        <label for="search_lab_num">Choose a lab:</label>
 
-        <label for="lab_num">Choose a lab:</label>
-
-        <select name="lab_num" id="lab_num">
+        <select name="search_lab_num" id="search_lab_num">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
 
-        <label for="day_num">Choose a day:</label>
+        <label for="search_day_num">Choose a day:</label>
 
-        <select name="day_num" id="day_num">
+        <select name="search_day_num" id="search_day_num">
             <option value="0">June 20</option>
             <option value="1">June 21</option>
             <option value="2">June 22</option>
@@ -33,9 +32,9 @@
             <option value="8">June 28</option>
         </select>
 
-        <label for="time">Choose a time:</label>
+        <label for="search_time">Choose a time:</label>
 
-        <select name="time" id="time">
+        <select name="search_time" id="search_time">
             <option value="0">10:00-10:30 </option>
             <option value="1">10:30-11:00</option>
             <option value="2">11:00-11:30</option>
@@ -50,43 +49,8 @@
             <option value="11">3:30-4:00</option>
         </select>
 
-        <input type="submit" onclick = 'displaySlots()' value = "Submit">
+        <input type="submit" onclick = 'displayFreeSlots()' value = "Search free slots">
+        <div id="freeslots"></div>
 
-        <table id="slots">
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-        </table>
-
-        <p>
-            Want to reserve a slot?
-            <a href="index.html"> Login here</a>
-        </p>
-
-    </body>
+        
 </html>
