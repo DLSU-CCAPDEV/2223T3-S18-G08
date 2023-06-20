@@ -60,10 +60,10 @@ for (i = 0; i < 3; i++){
 }
 */
 function displaySlots(labnumber, daynumber){
-    document.write(labnumber);
+    //document.write(labnumber);
     displayslots = slots[labnumber-1][daynumber];
     table = document.getElementById("slots");
-    /*
+    
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
             table[i].innerHTML = "Free";
@@ -71,7 +71,7 @@ function displaySlots(labnumber, daynumber){
             table[i].innerHTML = "Taken";
         }
     }
-    */
+    
     
     document.getElementById("slots").style.display = "block";
 
