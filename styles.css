@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/anime-ace');
 body {
     font-family: 'Anime Ace', sans-serif;
-    background-color: grey;
+    background-color: #3d5a80;
  }
 
  .header {
@@ -11,7 +11,7 @@ body {
 }
 
 .content {
-   background-color: lightblue;
+   background-color: #9bc1d9;
    padding: 25px;
    margin-left: 20%;
    margin-right: 20%;
@@ -19,7 +19,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #686464;
+    background-color: #293241;
   }
   
 .topnav a {
@@ -32,7 +32,7 @@ body {
 }
   
 .topnav a:hover {
-    background-color: #2c2a2a;
+    background-color: #98c1d9;
 }
   
 .topnav a.active {
