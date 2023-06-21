@@ -4,7 +4,7 @@ body {
     background-color: #3d5a80;
  }
 
- .header {
+.header {
     background-color: #d9d9d9;
     padding: 15px;
     text-align: center;
@@ -114,7 +114,8 @@ input[type=submit]:hover {
 }
 
 #slots tr td {
-    width: 175px;
+    white-space: pre-line;
+    width: 220px;
     text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
@@ -152,6 +153,11 @@ input[type=submit]:hover {
     background-color: grey;
 }
 
+#user-type-text{
+    margin: 0;
+    padding: 10px;
+}
+
 .profile-right-side {
     border: 2px solid;
     width: 74%; 
@@ -161,7 +167,7 @@ input[type=submit]:hover {
 }
 
 .delete-account {
-    clear: left;
+    float: left;
 }
 
 table, th, td {

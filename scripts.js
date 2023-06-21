@@ -30,11 +30,41 @@ function makeArray(l, d, t, s) {
             for(k=0;k<t;k++){
                 slots[i][j][k] = new Array();
                 for(n=0;n<s;n++){
-                    slots[i][j][k][n] = Math.floor(Math.random() * 2);
+                    slots[i][j][k][n] = 0;
                 }
             }
         }
     }
+
+    slots[0][0][0][7] = "Andre";
+    slots[0][0][0][8] = "Andre";
+    slots[0][0][0][9] = "Andre";
+    slots[0][0][0][5] = "Ethan";
+    slots[0][0][0][6] = "Ethan";
+    slots[0][0][0][10] = "Ethan";
+    slots[0][0][0][11] = "Ethan";
+
+    slots[1][0][0][5] = "AJ";
+    slots[1][0][0][6] = "AJ";
+    slots[1][0][0][7] = "AJ";
+    slots[1][0][0][8] = "AJ";
+    slots[1][0][0][9] = "AJ";
+    slots[1][0][0][15] = "Arren";
+    slots[1][0][0][16] = "Arren";
+    slots[1][0][0][17] = "Arren";
+    slots[1][0][0][18] = "Arren";
+    slots[1][0][0][19] = "Arren";
+    
+    slots[2][0][0][1] = "Adriel";
+    slots[2][0][0][2] = "Adriel";
+    slots[2][0][0][6] = "Adriel";
+    slots[2][0][0][7] = "Adriel";
+    slots[2][0][0][11] = "Adriel";
+    slots[2][0][0][12] = "Adriel";
+}
+
+function viewProfile(){
+    document.location.href = "viewprofile.html";
 }
 
 function displaySlots(){
@@ -43,9 +73,10 @@ function displaySlots(){
    
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + " (Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
         } else {
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + " (Taken)";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile()};
         }
     }
     
