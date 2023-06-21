@@ -7,26 +7,37 @@
     </head>
 
     <body>
+        <div class = "topnav">
+            <a class = "active" href = "profile.html"> PROFILE </a>
+            <a href = "searchslots.html"> SEARCH SLOTS </a>
+            <a href = "studentreserve.html"> RESERVE SLOT (USER) </a>
+            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
+            <a href = "searchusers.html"> SEARCH USER </a>
+            <a id = "right" href = "viewslots.html"> LOGOUT </a>
+        </div>  
         <h1>
             <div class = "header">
                 PROFILE
             </div>
-            <h3> SHOW USER INFO + profile picture + description (if student, show their current reservations) </h3><br>
-            <h3> THEY SHOULD ALSO BE ABLE TO EDIT THEIR OWN USER INFO </h3>
         </h1>
+        <h3> SHOW USER INFO + profile picture + description (if student, show their current reservations) </h3><br>
+        <h3> THEY SHOULD ALSO BE ABLE TO EDIT THEIR OWN USER INFO </h3>
 
-        <nav>
-            <h4>CAN WE ADD IF STATEMENT USING JS TO CHECK WHETHER STUDENT OR LAB TECHNICIAN?</h4><br>
-            <h4>because the behavior for reserving will be diff between the two</h4><br>
-            <h4>also editing reservations</h4>
-            <br>
-            <a href="viewslots.html"> View slot availability</a><br>
-            <a href="studentreserve.html"> Reserve a slot</a><br>
-            <a href="labtechnicianreserve.html"> Reserve a slot for a student</a><br>
-            <a href="searchusers.html"> Search for users</a><br>
-            <a href="searchslots.html"> Search for free slots</a><br>
-            <a href="index.html"> Logout</a><br>
-            <a href="index.html"> Delete account</a><br>
-        </nav>
+        <h4>CAN WE ADD IF STATEMENT USING JS TO CHECK WHETHER STUDENT OR LAB TECHNICIAN?</h4><br>
+        <h4>because the behavior for reserving will be diff between the two</h4><br>
+        <h4>also editing reservations</h4>
+        <br>
+
+        <div class = "content">
+            <nav>
+                <a class = "button" href="viewslots.html"> View slot availability</a><br>
+                <a class = "button" href="studentreserve.html"> Reserve a slot</a><br>
+                <a class = "button" href="labtechnicianreserve.html"> Reserve a slot for a student</a><br>
+                <a class = "button" href="searchusers.html"> Search for users</a><br>
+                <a class = "button" href="searchslots.html"> Search for free slots</a><br>
+                <a class = "button" href="index.html"> Logout</a><br>
+                <a class = "button" href="index.html"> Delete account</a><br>
+            </nav>
+        </div>
     </body>
 </html>
