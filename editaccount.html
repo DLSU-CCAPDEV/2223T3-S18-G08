@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Profile </title>
+        <script type="text/javascript" src="scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
+    <body>
+        <div class = "topnav">
+            <a href = "profile.html"> PROFILE </a>
+            <a href = "searchslots.html"> SEARCH SLOTS </a>
+            <a href = "studentreserve.html"> RESERVE SLOT (STUDENT) </a>
+            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
+            <a href = "searchusers.html"> SEARCH USER </a>
+            <a id = "right" href = "index.html"> LOGOUT </a>
+        </div>  
+        <h1>
+            <div class = "header">
+                EDIT PROFILE
+            </div>
+        </h1>
+
+        <div class="content">
+            <form class="form-style">
+                <p> Account type: </p>
+                <input type="radio" id="student" name="accounttype">
+                <label for="student"> Student </label>
+                <input type="radio" id="labtechnician" name="accounttype">
+                <label for="accounttype"> Lab technician</label><br><br>
+
+                <label for="username"> Username </label><br>
+                <input type="text" placeholder="Enter Username" id="username" name="username"><br>
+                <label for="profile-picture"> Profile Picture </label><br><br>
+                <input type="file" placeholder="Upload Picture" id="profile-picture" name="profile-picture"><br><br>
+                <label for="description"> Your Description </label><br>
+                <input type="text" placeholder="Enter Your Description" id="description" name="description"><br>
+            </form>
+        </div>
+
+        <div class = "save-account-changes">
+            <a class = "button1" href = "profile.html"> Save Changes </a>
+        </div>
+        <div class = "cancel-account-changes">
+            <a class = "button1" href = "profile.html"> Cancel Changes </a>
+        </div>
+    </body>
+</html>

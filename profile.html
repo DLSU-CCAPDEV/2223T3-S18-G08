@@ -20,16 +20,40 @@
                 PROFILE
             </div>
         </h1>
-        <h3> SHOW USER INFO + profile picture + description (if student, show their current reservations) </h3><br>
-        <h3> THEY SHOULD ALSO BE ABLE TO EDIT THEIR OWN USER INFO </h3>
 
-        <h4>CAN WE ADD IF STATEMENT USING JS TO CHECK WHETHER STUDENT OR LAB TECHNICIAN?</h4><br>
-        <h4>because the behavior for reserving will be diff between the two</h4><br>
-        <h4>also editing reservations</h4>
-        <br>
+        <div class = "profile-details">
+            <div class = "profile-left-side">
+                <div class = "profile-picture" style = "border: 1px solid;">
+                    <p style = "text-align: center";>insert profile picture here</p>
+                </div>
+                <div class = "user-type" style = "border: 1px solid;">
+                    <p style = "text-align: center;"> User<br>Technician </p>
+                </div>
+            </div>
+            <div class = "profile-right-side" style = "border: 1px solid;">
+                Insert Description Here
+            </div>
+        </div>
 
-        <div>
-            <a class = "button" href="index.html"> Delete account</a><br>
+        <div class = "content" style = "margin-left: 10%; margin-right: 10%;">
+            <table class = "lab-reservations" style = "width: 100%; margin: auto;">
+                <th colspan = "2"> Lab Reservations </th>
+                <tr> 
+                    <td> 1. Lab 1, 6/21/2023, 11:30AM - 12:00PM: Seat 15 </td>
+                    <td style = "width: 4%; border:0px;"><a class = "button2" href = "studenteditslot.html"> Edit </a></td>
+                </tr>
+                <tr>
+                    <td> 2. Lab 3, 6/26/2023, 3:30PM - 4:00PM: Seat 2</td>
+                    <td style = "width: 4%; border:0px;"><a class = "button2" href = "studenteditslot.html"> Edit </a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class = "edit-account">
+            <a class = "button1" href="editaccount.html"> Edit Account </a>
+        </div>
+        <div class = "delete-account">
+            <a class = "button1" href="index.html"> Delete aAccount </a>
         </div>
     </body>
 </html>
