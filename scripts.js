@@ -1,7 +1,7 @@
 function checkPassword(){
     if(document.getElementById("password").value == document.getElementById("confirmpassword").value){
         document.write();
-        document.location.href = "index.html";
+        document.location.href = "login.html";
     } else {
         alert("Password and confirm password do not match!");
     }
