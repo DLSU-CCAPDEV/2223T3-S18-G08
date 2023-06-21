@@ -8,85 +8,89 @@
 
     <body onload='makeArray(3,9,12,20);'>
         <h1>
-            View slots
+            <div class="header">
+                View slots
+            </div>
         </h1>
 
-        <label for="lab_num">Choose a lab:</label>
+        <div class = "content">
+            <label for="lab_num">Choose a lab:</label>
 
-        <select name="lab_num" id="lab_num">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-
-        <label for="day_num">Choose a day:</label>
-
-        <select name="day_num" id="day_num">
-            <option value="0">June 20</option>
-            <option value="1">June 21</option>
-            <option value="2">June 22</option>
-            <option value="3">June 23</option>
-            <option value="4">June 24</option>
-            <option value="5">June 25</option>
-            <option value="6">June 26</option>
-            <option value="7">June 27</option>
-            <option value="8">June 28</option>
-        </select>
-
-        <label for="time">Choose a time:</label>
-
-        <select name="time" id="time">
-            <option value="0">10:00-10:30 </option>
-            <option value="1">10:30-11:00</option>
-            <option value="2">11:00-11:30</option>
-            <option value="3">11:30-12:00</option>
-            <option value="4">12:00-12:30</option>
-            <option value="5">12:30-1:00</option>
-            <option value="6">1:00-1:30</option>
-            <option value="7">1:30-2:00</option>
-            <option value="8">2:00-2:30</option>
-            <option value="9">2:30-3:00</option>
-            <option value="10">3:00-3:30</option>
-            <option value="11">3:30-4:00</option>
-        </select>
-
-        <input type="submit" onclick = 'displaySlots()' value = "Submit">
-
-        <table id="slots">
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-            <tr>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-                <td> Free </td>
-            </tr>
-        </table>
-
-        <p>
-            Want to reserve a slot?
-            <a href="index.html"> Login here</a>
-        </p>
+            <select name="lab_num" id="lab_num">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+    
+            <label for="day_num">Choose a day:</label>
+    
+            <select name="day_num" id="day_num">
+                <option value="0">June 20</option>
+                <option value="1">June 21</option>
+                <option value="2">June 22</option>
+                <option value="3">June 23</option>
+                <option value="4">June 24</option>
+                <option value="5">June 25</option>
+                <option value="6">June 26</option>
+                <option value="7">June 27</option>
+                <option value="8">June 28</option>
+            </select>
+    
+            <label for="time">Choose a time:</label>
+    
+            <select name="time" id="time">
+                <option value="0">10:00-10:30 </option>
+                <option value="1">10:30-11:00</option>
+                <option value="2">11:00-11:30</option>
+                <option value="3">11:30-12:00</option>
+                <option value="4">12:00-12:30</option>
+                <option value="5">12:30-1:00</option>
+                <option value="6">1:00-1:30</option>
+                <option value="7">1:30-2:00</option>
+                <option value="8">2:00-2:30</option>
+                <option value="9">2:30-3:00</option>
+                <option value="10">3:00-3:30</option>
+                <option value="11">3:30-4:00</option>
+            </select>
+    
+            <input type="submit" onclick = 'displaySlots()' value = "Submit">
+    
+            <table id="slots">
+                <tr>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                </tr>
+                <tr>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                </tr>
+                <tr>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                </tr>
+                <tr>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                    <td> Free </td>
+                </tr>
+            </table>
+    
+            <p>
+                Want to reserve a slot?
+                <a href="index.html"> Login here</a>
+            </p>
+        </div>
 
     </body>
 </html>

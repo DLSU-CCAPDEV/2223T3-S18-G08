@@ -43,9 +43,9 @@ function displaySlots(){
    
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + " (Free)";
         } else {
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "(Taken)";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + " (Taken)";
         }
     }
     
