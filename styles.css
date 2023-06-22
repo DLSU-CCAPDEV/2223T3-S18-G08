@@ -44,7 +44,7 @@ body {
     float: right;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 14px;
+    padding: 12px 14px;
     text-decoration: none;
     font-size: 15px;
 }
@@ -102,8 +102,6 @@ input[type=submit]:hover {
     text-decoration: none;
     display: inline-block;
     font-size: 8px;
-    width: 35px;
-    border-radius: 4px;
 }
 
 .button2:hover {
@@ -134,7 +132,7 @@ input[type=submit]:hover {
 }
 
 .profile-left-side {
-    width: 20%;
+    width: 25%;
     height: 240px;
     float: left;
 }
@@ -162,7 +160,7 @@ input[type=submit]:hover {
 
 .profile-right-side {
     border: 2px solid;
-    width: 79%; 
+    width: 74%; 
     background-color: rgb(135, 98, 202);
     height: 240px;   
     float: left;
@@ -197,42 +195,5 @@ table, th, td {
 .cancel-account-changes {
     padding-top: 15px;
     margin-left: 10px;
-    float: left;
-}
-
-/* Define table styles */
-table.lab-reservations {
-    width: 100%;
-    margin: auto;
-    border-collapse: collapse;
-    border: 1px solid black;
-}
-
-table.lab-reservations th {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-}
-
-table.lab-reservations td {
-    padding: 10px;
-}
-
-/* Center the table heading */
-table.lab-reservations th[colspan="2"] {
-    text-align: center;
-}
-
-#search-profile-picture{
-    padding: 5px;
-    vertical-align: middle;
-    display: inline-block;
-    height: 85px;
-    width: 85px;
-}
-
-.cancel-reservation-changes {
-    padding-top: 15px;
-    margin-left: 20%;
     float: left;
 }
