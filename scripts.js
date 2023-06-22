@@ -1,9 +1,14 @@
 function checkPassword(){
-    if(document.getElementById("password").value == document.getElementById("confirmpassword").value){
-        document.write();
-        document.location.href = "login.html";
-    } else {
-        alert("Password and confirm password do not match!");
+    //checks if user inputs are empty
+    if(document.getElementById('student').checked || document.getElementById("labtechnician").checked && document.getElementById("email").value != "" && document.getElementById("username").value != "" && document.getElementById("email").value != "password" && document.getElementById("confirmpassword").value != ""){
+        if(document.getElementById("password").value == document.getElementById("confirmpassword").value){
+            document.write();
+            document.location.href = "login.html";
+        } else {
+            alert("Password and confirm password do not match!");
+        }
+    }else{
+        alert("Completely fill-out the form!");
     }
 }
 

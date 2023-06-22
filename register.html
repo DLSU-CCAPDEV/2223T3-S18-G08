@@ -22,19 +22,19 @@
         <div class="content">
             <form class="form-style">
                 <p> Account type: </p>
-                <input type="radio" id="student" name="accounttype">
+                <input type="radio" id="student" name="accounttype" required>
                 <label for="student"> Student </label>
-                <input type="radio" id="labtechnician" name="accounttype">
+                <input type="radio" id="labtechnician" name="accounttype" required>
                 <label for="accounttype"> Lab technician</label><br><br>
 
                 <label for="email"> Email</label><br>
-                <input type="email" placeholder="Enter Email" id="email" name="email"><br>
+                <input type="email" placeholder="Enter Email" id="email" name="email" required><br>
                 <label for="username"> Username</label><br>
-                <input type="text" placeholder="Enter Username" id="username" name="username"><br>
+                <input type="text" placeholder="Enter Username" id="username" name="username" required><br>
                 <label for="password"> Password</label><br>
-                <input type="password" placeholder="Enter Password" id="password" name="password"><br>
+                <input type="password" placeholder="Enter Password" id="password" name="password" required><br>
                 <label for="confirmpassword"> Confirm Password</label><br>
-                <input type="password" placeholder="Re-enter your Password" id="confirmpassword" name="confirmpassword"><br>
+                <input type="password" placeholder="Re-enter your Password" id="confirmpassword" name="confirmpassword" required><br>
                 <input type="submit" onclick = 'checkPassword()' value = "Submit">
             </form>
         </div>

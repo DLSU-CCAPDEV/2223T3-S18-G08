@@ -102,6 +102,8 @@ input[type=submit]:hover {
     text-decoration: none;
     display: inline-block;
     font-size: 8px;
+    width: 35px;
+    border-radius: 4px;
 }
 
 .button2:hover {
@@ -196,4 +198,27 @@ table, th, td {
     padding-top: 15px;
     margin-left: 10px;
     float: left;
+}
+
+/* Define table styles */
+table.lab-reservations {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+table.lab-reservations th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+table.lab-reservations td {
+    padding: 10px;
+}
+
+/* Center the table heading */
+table.lab-reservations th[colspan="2"] {
+    text-align: center;
 }
