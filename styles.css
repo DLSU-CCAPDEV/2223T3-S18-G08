@@ -218,11 +218,6 @@ table.lab-reservations td {
     padding: 10px;
 }
 
-/* Center the table heading */
-table.lab-reservations th[colspan="2"] {
-    text-align: center;
-}
-
 #search-profile-picture{
     padding: 5px;
     vertical-align: middle;
@@ -234,5 +229,27 @@ table.lab-reservations th[colspan="2"] {
 .cancel-reservation-changes {
     padding-top: 15px;
     margin-left: 20%;
+    float: left;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #3f7e41;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button3:hover {
+    background-color: #3f7e41;
+    color: white;
+}
+
+.return-profile {
+    padding-top: 15px;
+    margin-left: 10%;
     float: left;
 }
