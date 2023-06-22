@@ -66,9 +66,6 @@ function makeArray(l, d, t, s) {
 function viewProfile(){
     document.location.href = "viewprofile.html";
 }
-function profile(){
-    document.location.href = "profile.html";
-}
 
 function displaySlots(){
     var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
@@ -108,7 +105,6 @@ function displaySlotsR(){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
-                    console.log(this.style.backgroundColor) 
                     if(this.style.backgroundColor == "orange"){
                         this.style.backgroundColor = "transparent";}
                     else{
@@ -124,21 +120,6 @@ function displaySlotsR(){
     
     document.getElementById("slots").style.display = "block";
 }
-function selectable(cell){
-    cell.onclick = function(){
-        console.log(cell.style.backgroundColor) 
-        if(cell.style.backgroundColor == "orange"){
-            cell.style.backgroundColor = "transparent";}
-        else{
-            cell.style.backgroundColor = "orange";   
-        }
-        };
-    
-}
 
-function checkFree(){
-    /* checks to make sure the specific seat is indeed free, in which case link them back to profile.html
-        else alert that the slot is already taken
-    */
-}
+
 
