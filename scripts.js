@@ -126,28 +126,32 @@ function displaySlotsR(){
     document.getElementById("slots").style.display = "block";
 }
 
-function displaySlotsD(){
-    var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
-    table = document.getElementById("slots");
+// function displaySlotsD(){
+//     var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
+//     table = document.getElementById("slots");
    
-    for(i = 0; i < 20; i++){
-        if(displayslots[i] == 0){
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
-            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
-            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
-        } else {
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
-            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "red";
-            table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
-                if(this.style.backgroundColor == "red"){
-                    this.style.backgroundColor = "transparent";
-                    this.innerHTML = "Seat " + (i+1) + "\n(Free)";
-                }
-            };
-        }
-    }
+//     for(i = 0; i < 20; i++){
+//         if(displayslots[i] == 0){
+//             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+//             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
+//             table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
+//         } else {
+//             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
+//             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "red";
+//             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
+//                 if(this.style.backgroundColor == "red"){
+//                     this.style.backgroundColor = "transparent";
+//                     this.innerHTML = "Seat " + (i+1) + "\n(Free)";
+//                 }
+//             };
+//         }
+//     }
     
-    document.getElementById("slots").style.display = "block";
+//     document.getElementById("slots").style.display = "block";
+// }
+
+function remove(row){
+    document.getElementById(row).remove();
 }
 
 function editReserve(l,d,t,s){
