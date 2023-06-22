@@ -66,6 +66,9 @@ function makeArray(l, d, t, s) {
 function viewProfile(){
     document.location.href = "viewprofile.html";
 }
+function profile(){
+    document.location.href = "profile.html";
+}
 
 function displaySlots(){
     var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
@@ -74,6 +77,7 @@ function displaySlots(){
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
         } else {
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile()};
@@ -93,6 +97,43 @@ function displayFreeSlots(){
     }
 
     document.getElementById("freeslots").innerHTML = freeslots;
+}
+
+function displaySlotsR(){
+    var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
+    table = document.getElementById("slots");
+   
+    for(i = 0; i < 20; i++){
+        if(displayslots[i] == 0){
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
+                    console.log(this.style.backgroundColor) 
+                    if(this.style.backgroundColor == "orange"){
+                        this.style.backgroundColor = "transparent";}
+                    else{
+                        this.style.backgroundColor = "orange";   
+                    }
+                };
+        } else {
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
+            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "red";
+        }
+    }
+    
+    document.getElementById("slots").style.display = "block";
+}
+function selectable(cell){
+    cell.onclick = function(){
+        console.log(cell.style.backgroundColor) 
+        if(cell.style.backgroundColor == "orange"){
+            cell.style.backgroundColor = "transparent";}
+        else{
+            cell.style.backgroundColor = "orange";   
+        }
+        };
+    
 }
 
 function checkFree(){
