@@ -230,3 +230,9 @@ table.lab-reservations th[colspan="2"] {
     height: 85px;
     width: 85px;
 }
+
+.cancel-reservation-changes {
+    padding-top: 15px;
+    margin-left: 20%;
+    float: left;
+}
