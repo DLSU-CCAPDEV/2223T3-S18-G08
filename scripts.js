@@ -121,5 +121,34 @@ function displaySlotsR(){
     document.getElementById("slots").style.display = "block";
 }
 
+function editReserve(l,d,t,s){
+    document.location.href = "studenteditslot.html?l="+l+"&d="+d+"&t="+t+"&s="+s;
+}
+function displaySlotsE(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString); 
+    var l = urlParams.get("l");
+    var d = urlParams.get("d");
+    var t = urlParams.get("t");
+    var s = urlParams.get("s");
+    var displayslots = slots[l][d][t];
+    table = document.getElementById("slots");
+   
+    for(i = 0; i < 20; i++){
+        if(displayslots[i] == 0){
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
+            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
+            if(i == s){
+                table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "orange";
+            }
+        } else {
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile()};
+        }
+    }
+    
+    document.getElementById("slots").style.display = "block";
+}
 
 
