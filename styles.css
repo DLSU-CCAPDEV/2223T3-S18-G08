@@ -222,3 +222,11 @@ table.lab-reservations td {
 table.lab-reservations th[colspan="2"] {
     text-align: center;
 }
+
+#search-profile-picture{
+    padding: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 85px;
+    width: 85px;
+}

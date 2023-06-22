@@ -164,7 +164,6 @@ function displaySlotsE(){
     document.getElementById("slots").style.display = "block";
 }
 function getTime(t){
-    var st;
     switch(Number(t)){
         case 0:
             return "10:00AM-10:30AM";
@@ -193,3 +192,6 @@ function getTime(t){
     }
 }
 
+function searchUser(){
+    document.getElementById("search-result").style.display = "block";
+}

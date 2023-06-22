@@ -25,6 +25,13 @@
             <p>Enter the email of the user you are searching for:</p>
             <label for="find_email"> Email of user: </label><br>
             <input type="email" placeholder="Enter Email" id="find_email" name="find_email" required><br>
+            <input type="submit" onclick = 'searchUser()' value = "Search user">
+
+            <div id = "search-result" onclick="viewProfile()" style="border:2px solid; vertical-align: middle; display:none;">
+                <img id = "search-profile-picture" src="profilepicture.jpg">
+                <p style = "display: inline-block;">juan_dela_cruz@dlsu.edu.ph</p>
+            </div>
+
         </div>
     </body>
 </html>
