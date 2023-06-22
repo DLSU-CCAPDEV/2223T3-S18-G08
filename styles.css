@@ -134,7 +134,7 @@ input[type=submit]:hover {
 }
 
 .profile-left-side {
-    width: 25%;
+    width: 20%;
     height: 240px;
     float: left;
 }
@@ -162,7 +162,7 @@ input[type=submit]:hover {
 
 .profile-right-side {
     border: 2px solid;
-    width: 74%; 
+    width: 79%; 
     background-color: rgb(135, 98, 202);
     height: 240px;   
     float: left;
