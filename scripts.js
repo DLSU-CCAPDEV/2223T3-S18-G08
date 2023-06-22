@@ -138,22 +138,58 @@ function displaySlotsE(){
     var s = urlParams.get("s");
     var displayslots = slots[l][d][t];
     table = document.getElementById("slots");
+    document.getElementById("timeslot").innerHTML = "lab: " + (Number(l)+1) + " day: June, " + (Number(d)+20) + " time: " + getTime(t);
    
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
-            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
+                    if(this.style.backgroundColor == "orange"){
+                        this.style.backgroundColor = "transparent";}
+                    else{
+                        this.style.backgroundColor = "orange";   
+                    }
+                };
             if(i == s){
                 table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "orange";
             }
         } else {
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
-            table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile()};
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
+            table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "red";
         }
     }
     
     document.getElementById("slots").style.display = "block";
 }
-
+function getTime(t){
+    var st;
+    switch(Number(t)){
+        case 0:
+            return "10:00AM-10:30AM";
+        case 1:
+            return "10:30AM-11:00AM";
+        case 2:
+            return "11:00AM-11:30AM";
+        case 3:
+            return "11:30AM-12:00AM";
+        case 4:
+            return "12:00AM-12:30AM";
+        case 5:
+            return "12:30AM-1:00AM";
+        case 6:
+            return "1:00AM-1:30AM";
+        case 7:
+            return "1:30AM-2:00AM";
+        case 8:
+            return "2:00AM-2:30AM";
+        case 9:
+            return "2:30AM-3:00AM";
+        case 10:
+            return "3:00AM-3:30AM";
+        case 11:
+            return "3:30AM-4:00AM";
+    }
+}
 
