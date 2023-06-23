@@ -13,8 +13,8 @@ body {
 .content {
    background-color: #9bc1d9;
    padding: 25px;
-   margin-left: 20%;
-   margin-right: 20%;
+   margin-left: 10%;
+   margin-right: 10%;
 }
 
 .topnav {
@@ -111,11 +111,16 @@ input[type=submit]:hover {
 
 #slots {
     display: none;
+    width: 100%;
+}
+
+#slots tr{
+    width: 100%;
 }
 
 #slots tr td {
     white-space: pre-line;
-    width: 220px;
+    width: 20%;
     text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
@@ -151,6 +156,42 @@ input[type=submit]:hover {
     width: 169px;
     height: 39px;
     background-color: grey;
+}
+
+table.lab-reservations {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+table.lab-reservations th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+table.lab-reservations td {
+    padding: 10px;
+}
+
+/* Center the table heading */
+table.lab-reservations th[colspan="2"] {
+    text-align: center;
+}
+
+#search-profile-picture{
+    padding: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 85px;
+    width: 85px;
+}
+
+.cancel-reservation-changes {
+    padding-top: 15px;
+    margin-left: 20%;
+    float: left;
 }
 
 #user-type-text{
@@ -206,4 +247,26 @@ table, th, td {
 
 #search-profile-picture {
     width: 100%;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #3f7e41;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button3:hover {
+    background-color: #3f7e41;
+    color: white;
+}
+
+.return-profile {
+    padding-top: 15px;
+    margin-left: 10%;
+    float: left;
 }
