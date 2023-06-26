@@ -26,9 +26,9 @@ body {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 12px;
 }
   
 .topnav a:hover {
@@ -44,9 +44,9 @@ body {
     float: right;
     color: #f2f2f2;
     text-align: center;
-    padding: 12px 14px;
+    padding: 10px 12px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .form-style {   
@@ -137,7 +137,7 @@ input[type=submit]:hover {
 }
 
 .profile-left-side {
-    width: 25%;
+    width: 20%;
     height: 240px;
     float: left;
 }
@@ -201,7 +201,7 @@ table.lab-reservations th[colspan="2"] {
 
 .profile-right-side {
     border: 2px solid;
-    width: 74%; 
+    width: 79%; 
     background-color: rgb(135, 98, 202);
     height: 240px;   
     float: left;
@@ -236,6 +236,12 @@ table, th, td {
 .cancel-account-changes {
     padding-top: 15px;
     margin-left: 10px;
+    float: left;
+}
+
+.return-profile {
+    padding-top: 15px;
+    margin-left: 10%;
     float: left;
 }
 
