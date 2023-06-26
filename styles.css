@@ -120,7 +120,7 @@ input[type=submit]:hover {
 
 #slots tr td {
     white-space: pre-line;
-    width: 300px;
+    width: 3000px;
     text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
@@ -190,7 +190,7 @@ table.lab-reservations th[colspan="2"] {
 
 .cancel-reservation-changes {
     padding-top: 15px;
-    margin-left: 20%;
+    margin-left: 10%;
     float: left;
 }
 
