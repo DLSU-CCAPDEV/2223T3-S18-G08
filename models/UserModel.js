@@ -2,6 +2,25 @@
 // import module `mongoose`
 var mongoose = require('mongoose');
 
+var reservations = new mongoose.Schema({
+    lab: {
+        type: Number,
+        required: true
+    },
+    date: {
+        type: Number,
+        required: true
+    },
+    time: {
+        type: Number,
+        required: true
+    },
+    seat: {
+        type: Number,
+        required: true
+    }
+  });
+
 // defines the schema for collection `users`
 var UserSchema = new mongoose.Schema({
     fName: {
@@ -19,7 +38,8 @@ var UserSchema = new mongoose.Schema({
     pw: {
         type: String,
         required: true
-    }
+    },
+    myReservations:[reservations]
 });
 
 /*
