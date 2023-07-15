@@ -8,6 +8,8 @@ const controller = require('../controllers/controller.js');
 // import module `signupController` from `../controllers/signupController.js`
 const loginController = require('../controllers/loginController.js');
 
+const registerController = require('../controllers/registerController.js');
+
 // import module `successController` from `../controllers/successController.js`
 const successController = require('../controllers/successController.js');
 
@@ -43,6 +45,15 @@ app.get('/login', loginController.getLogin);
     when a client sends an HTTP POST request for `/signup`
 */
 app.post('/login', loginController.postLogin);
+
+app.get('/register', registerController.getRegister);
+
+/*
+    execute function postSignUp()
+    defined in object `signupController` in `../controllers/signupController.js`
+    when a client sends an HTTP POST request for `/signup`
+*/
+app.post('/register', registerController.postRegister);
 
 /*
     execute function getSuccess()

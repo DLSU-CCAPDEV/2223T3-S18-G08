@@ -9,21 +9,21 @@ const User = require('../models/UserModel.js');
     defines an object which contains functions executed as callback
     when a client requests for `signup` paths in the server
 */
-const loginController = {
+const registerController = {
 
     /*
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
     */
-    getLogin: function (req, res) {
-        res.render('login');
+    getRegister: function (req, res) {
+        res.render('register');
     },
 
     /*
         executed when the client sends an HTTP POST request `/signup`
         as defined in `../routes/routes.js`
     */
-    postLogin: async function (req, res) {
+    postRegister: async function (req, res) {
 
         /*
             when submitting forms using HTTP POST method
@@ -33,18 +33,36 @@ const loginController = {
             can be retrieved using `req.body.fName`
         */
         var email = req.body.email;
+        var student = req.body.student;
+        var username = req.body.username;
         var password = req.body.password;
-        
-
+        var confirmpassword = req.body.confirmpassword;
+        var position = 'student';
+        if(!student){
+            position = 'technitian';
+        }
         var user = {
-            email: email
+            email:email,
+            username: username,
+            password: password,
+            description: 'This is your description',
+            position: position,
+            myReservations:null
         };
-        var response = await db.findOne(User,user,'email password');
-        if (response != null){
-            if(response.password == password){
-                res.render('profile');
+        var usercheck = {
+            email:email
+        }
+        var check = await db.findOne(User,user,'email');
+        if(check == null){
+            if(password == confirmpassword){
+                var response = await db.insertOne(User,user);
+                if(response){
+                    res.render('login');
+                }else{
+                    res.render('error');
+                }
             }else{
-                console.log('wrong password');
+                res.render('error');
             }
         }else{
             res.render('error');
@@ -56,4 +74,4 @@ const loginController = {
     exports the object `signupController` (defined above)
     when another script exports from this file
 */
-module.exports = loginController;
+module.exports = registerController;
