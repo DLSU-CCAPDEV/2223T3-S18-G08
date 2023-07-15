@@ -33,14 +33,10 @@ const registerController = {
             can be retrieved using `req.body.fName`
         */
         var email = req.body.email;
-        var student = req.body.student;
+        var position = req.body.accounttype;
         var username = req.body.username;
         var password = req.body.password;
         var confirmpassword = req.body.confirmpassword;
-        var position = 'student';
-        if(!student){
-            position = 'technitian';
-        }
         var user = {
             email:email,
             username: username,
@@ -52,8 +48,8 @@ const registerController = {
         var usercheck = {
             email:email
         }
-        var check = await db.findOne(User,user,'email');
-        if(check == null){
+        var check = await db.findOne(User,usercheck,'email');
+        if(await check == null){
             if(password == confirmpassword){
                 var response = await db.insertOne(User,user);
                 if(response){
@@ -65,6 +61,7 @@ const registerController = {
                 res.render('error');
             }
         }else{
+            console.log('repeat');
             res.render('error');
         }
     }
