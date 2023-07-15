@@ -2,7 +2,7 @@
 <html>
     <head>
         <title> Login Form </title>
-        <script type="text/javascript" src="scripts.js"></script>
+        <script type="text/javascript" src="/js/scripts.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
     </head>
 
@@ -20,14 +20,14 @@
 
         <br>
         <div class="content">
-            <form class="form-style">
+            <form class="form-style" action="/login" method="post" >
                 <label for="email"> Email: </label><br>
                 <input type="email" placeholder="Enter Email" id="email" name="email" required><br>
                 <label for="password"> Password: </label><br>
                 <input type="password" placeholder="Enter Password" id="password" name="password" required><br>
                 <input type="checkbox" id="rememberme" name="rememberme">
                 <label for="rememberme"> Remember me </label><br>
-                <input type="submit" onclick = 'checkLogin()' value = "Submit" >
+                <input type="submit" value = "Submit" >
             </form>
 
             <p>

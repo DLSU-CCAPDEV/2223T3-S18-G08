@@ -23,19 +23,15 @@ var reservations = new mongoose.Schema({
 
 // defines the schema for collection `users`
 var UserSchema = new mongoose.Schema({
-    fName: {
+    email: {
         type: String,
         required: true
     },
-    lName: {
+    password: {
         type: String,
         required: true
     },
-    idNum: {
-        type: Number,
-        required: true
-    },
-    pw: {
+    description: {
         type: String,
         required: true
     },

@@ -6,7 +6,7 @@ const express = require('express');
 const controller = require('../controllers/controller.js');
 
 // import module `signupController` from `../controllers/signupController.js`
-const signupController = require('../controllers/signupController.js');
+const loginController = require('../controllers/loginController.js');
 
 // import module `successController` from `../controllers/successController.js`
 const successController = require('../controllers/successController.js');
@@ -35,14 +35,14 @@ app.get('/', controller.getIndex);
     defined in object `signupController` in `../controllers/signupController.js`
     when a client sends an HTTP GET request for `/signup`
 */
-app.get('/signup', signupController.getSignUp);
+app.get('/login', loginController.getLogin);
 
 /*
     execute function postSignUp()
     defined in object `signupController` in `../controllers/signupController.js`
     when a client sends an HTTP POST request for `/signup`
 */
-app.post('/signup', signupController.postSignUp);
+app.post('/login', loginController.postLogin);
 
 /*
     execute function getSuccess()
