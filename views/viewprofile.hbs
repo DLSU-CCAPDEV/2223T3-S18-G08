@@ -2,20 +2,12 @@
 <html>
     <head>
         <title> Viewing Profile </title>
-        <script type="text/javascript" src="scripts.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
     </head>
 
     <body>
-        <div class = "topnav">
-            <a class = "active" href = "viewprofile.html"> VIEWING PROFILE </a>
-            <a href = "searchslots.html"> SEARCH SLOTS </a>
-            <a href = "studentreserve.html"> RESERVE SLOT (STUDENT) </a>
-            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
-            <a href = "labtechnicianmodify.html"> MODIFY RESERVATIONS (LAB TECH) </a>
-            <a href = "searchusers.html"> SEARCH USER </a>
-            <a id = "right" href = "index.html"> LOGOUT </a>
-        </div>
+        {{> nav}}
         <h1>
             <div class = "header">
                 VIEWING PROFILE
@@ -24,7 +16,7 @@
 
         <div class = "profile-details">
             <div class = "profile-left-side">
-                <img class = "profile-picture" style = "border: 1px solid;" src="profilepicture.jpg">
+                <img class = "profile-picture" style = "border: 1px solid;" src="/image/profilepicture.jpg">
 
                 <div class = "user-type" style = "border: 1px solid;">
                     <p id="user-type-text" style = "text-align: center;"> STUDENT </p>
@@ -48,7 +40,7 @@
         </div>
 
         <div class = "return-profile">
-            <a class = "button3" href="profile.html"> Return to Profile </a>
+            <a class = "button3" href="profile"> Return to Profile </a>
         </div>
     </body>
 </html>

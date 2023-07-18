@@ -7,18 +7,50 @@
     </head>
     <body>
         <div class = "topnav">
-            {{#ifCond selected 'profile'}}
-                <a class = "active" href = "profile.html"> PROFILE </a>
+            {{#ifCond active 'profile'}}
+                <a class = "active" href = "profile"> PROFILE </a>
             {{else}}
-                <a href = "profile.html"> PROFILE </a>
+                <a href = "profile"> PROFILE </a>
+            {{/ifCond}}
+
+            {{#ifCond active 'searchslots'}}
+                <a class = "active" href = "searchslots"> SEARCH SLOTS </a>
+            {{else}}
+                <a href = "searchslots"> SEARCH SLOTS </a>
+            {{/ifCond}}
+
+            {{#ifCond active 'studentreserve'}}
+                <a class = "active" href = "studentreserve"> RESERVE SLOT (STUDENT) </a>
+            {{else}}
+                <a href = "studentreserve"> RESERVE SLOT (STUDENT) </a>
+            {{/ifCond}}
+
+            {{#ifCond active 'labtechnicianreserve'}}
+                <a class = "active" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+            {{else}}
+                <a href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+            {{/ifCond}}
+
+            {{#ifCond active 'labtechnicianmodify'}}
+                <a class = "active" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
+            {{else}}
+                <a href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
             {{/ifCond}}
             
-            <a href = "searchslots.html"> SEARCH SLOTS </a>
-            <a href = "studentreserve.html"> RESERVE SLOT (STUDENT) </a>
-            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
-            <a href = "labtechnicianmodify.html"> MODIFY RESERVATIONS (LAB TECH) </a>
-            <a href = "searchusers.html"> SEARCH USER </a>
-            <a id = "right" href = "index.html"> LOGOUT </a>
+            {{#ifCond active 'searchusers'}}
+                 <a class = "active" href = "searchusers"> SEARCH USER </a>
+            {{else}}
+                 <a href = "searchusers"> SEARCH USER </a>
+            {{/ifCond}}
+            
+            {{#ifCond active 'logout'}}
+                  <a class = "active" id = "right" href = "index"> LOGOUT </a>
+            {{else}}
+                  <a id = "right" href = "index"> LOGOUT </a>
+            {{/ifCond}}
+            
+           
+           
         </div>  
     </body>
 </html>

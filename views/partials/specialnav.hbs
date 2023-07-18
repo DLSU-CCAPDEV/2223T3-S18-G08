@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Reserve Slot for Student </title>
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    </head>
+    <body>
+
+        <div class = "topnav">
+                {{#ifCond active 'index'}}
+                    <a class = "active" id = "right" href = "index"> LOGIN </a>
+                {{else}}
+                    <a id = "right" href = "index"> LOGIN </a>
+                {{/ifCond}}
+
+                {{#ifCond active 'register'}}
+                    <a class = "active"  id = "right" href = "register"> REGISTER </a>
+                {{else}}
+                      <a id = "right" href = "register"> REGISTER </a>
+                {{/ifCond}}
+            
+        </div>  
+    </body>
+</html>

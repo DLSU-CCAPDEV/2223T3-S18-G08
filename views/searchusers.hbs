@@ -2,20 +2,12 @@
 <html>
     <head>
         <title> Search User </title>
-        <script type="text/javascript" src="scripts.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
     </head>
 
     <body>
-        <div class = "topnav">
-            <a href = "profile.html"> PROFILE </a>
-            <a href = "searchslots.html"> SEARCH SLOTS </a>
-            <a href = "studentreserve.html"> RESERVE SLOT (STUDENT) </a>
-            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
-            <a href = "labtechnicianmodify.html"> MODIFY RESERVATIONS (LAB TECH) </a>
-            <a class = "active" href = "searchusers.html"> SEARCH USER </a>
-            <a id = "right" href = "index.html"> LOGOUT </a>
-        </div>  
+        {{> nav}}
         <h1>
             <div class="header">
                 Search user
@@ -29,7 +21,7 @@
             <input type="submit" onclick = 'searchUser()' value = "Search user">
 
             <div id = "search-result" onclick="viewProfile()" style="border:2px solid; vertical-align: middle; display:none;">
-                <img id = "search-profile-picture" src="profilepicture.jpg">
+                <img id = "search-profile-picture" src="/image/profilepicture.jpg">
                 <p style = "display: inline-block;">juan_dela_cruz@dlsu.edu.ph</p>
             </div>
 

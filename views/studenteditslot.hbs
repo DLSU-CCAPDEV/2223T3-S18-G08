@@ -2,20 +2,12 @@
 <html>
     <head onload='makeArray(3,9,12,20);'>
         <title> Edit Reservation Slot </title>
-        <script type="text/javascript" src="scripts.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
     </head>
 
     <body onload='makeArray(3,9,12,20); displaySlotsE();'>
-        <div class = "topnav">
-            <a href = "profile.html"> PROFILE </a>
-            <a href = "searchslots.html"> SEARCH SLOTS </a>
-            <a href = "studentreserve.html"> RESERVE SLOT (STUDENT) </a>
-            <a href = "labtechnicianreserve.html"> RESERVE FOR STUDENT (LAB TECH) </a>
-            <a href = "labtechnicianmodify.html"> MODIFY RESERVATIONS (LAB TECH) </a>
-            <a href = "searchusers.html"> SEARCH USER </a>
-            <a id = "right" href = "index.html"> LOGOUT </a>
-        </div>  
+        {{> nav}}
         <h1>
             <div class="header">
                 Edit Reservation Slot
@@ -61,7 +53,7 @@
         </div>
 
         <div class = "cancel-reservation-changes">
-            <a class = "button1" href = "profile.html"> Cancel Changes </a>
+            <a class = "button1" href = "profile"> Cancel Changes </a>
         </div>
     </body>
 </html>
