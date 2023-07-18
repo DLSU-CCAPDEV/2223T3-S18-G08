@@ -42,7 +42,7 @@ const loginController = {
         var response = await db.findOne(User,user,'email password');
         if (response != null){
             if(response.password == password){
-                res.render('profile');
+                res.render('profile',{selected:'profile'});
             }else{
                 console.log('wrong password');
             }

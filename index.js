@@ -20,6 +20,12 @@ app.set('view engine', 'hbs');
 // sets `/views/partials` as folder containing partial hbs files
 hbs.registerPartials(__dirname + '/views/partials');
 
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+    if(v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));
 
