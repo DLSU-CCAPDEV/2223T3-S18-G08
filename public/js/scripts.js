@@ -208,10 +208,10 @@ function gotoprofile(email){
     hidden_form.method = 'post';
         
     // Set path
-    hidden_form.action = 'profile';
+    hidden_form.action = '/profile';
         
-            const hidden_input = document.createElement
-                ('input');
+                
+            const hidden_input = document.createElement('input');
             hidden_input.type = 'hidden';
             hidden_input.name = 'email';
             hidden_input.value = email;

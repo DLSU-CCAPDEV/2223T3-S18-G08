@@ -41,7 +41,6 @@ app.post('/login', loginController.postLogin);
 
 app.get('/register', registerController.getRegister);
 
-app.get('/profile', profileController.getProfile);
 
 app.post('/profile', profileController.postProfile);
 
@@ -59,7 +58,6 @@ app.post('/register', registerController.postRegister);
     when a client sends an HTTP GET request for `/profile/:idNum`
     where `idNum` is a parameter
 */
-app.get('/profile/:idNum', profileController.getProfile);
 
 /*
     exports the object `app` (defined above)

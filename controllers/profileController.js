@@ -40,7 +40,8 @@ const profileController = {
         if (result != null){
             res.render("profile", result,{active:'index'});
         }else{
-            res.render("error");
+            res.render("profile",{active:'index'});
+            //res.render("error");
         }
     },
     getProfile: async function (req, res) {
