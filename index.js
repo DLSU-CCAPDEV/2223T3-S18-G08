@@ -33,13 +33,6 @@ hbs.registerHelper('times', function(n, block) {
         accum += block.fn(i);
     return accum;
 });
-
-hbs.registerHelper('divisible5', function(num, options){
-    if(num%5 === 0){
-      return options.fn(this);
-    }
-    return options.inverse(this);
-});
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));
 

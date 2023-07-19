@@ -199,3 +199,26 @@ function getTime(t){
 function searchUser(){
     document.getElementById("search-result").style.display = "block";
 }
+
+function gotoprofile(email){
+    // Create form
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = 'profile';
+        
+            const hidden_input = document.createElement
+                ('input');
+            hidden_input.type = 'hidden';
+            hidden_input.name = 'email';
+            hidden_input.value = email;
+
+            hidden_form.appendChild(hidden_input);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+    
+}

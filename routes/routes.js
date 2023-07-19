@@ -10,20 +10,12 @@ const loginController = require('../controllers/loginController.js');
 
 const registerController = require('../controllers/registerController.js');
 
-// import module `successController` from `../controllers/successController.js`
-const successController = require('../controllers/successController.js');
-
 // import module `profileController` from `../controllers/profileController.js`
 const profileController = require('../controllers/profileController.js');
 
 const app = express();
 
-/*
-    execute function getFavicon()
-    defined in object `controller` in `../controllers/controller.js`
-    when a client sends an HTTP GET request for `/favicon.ico`
-*/
-app.get('/favicon.ico', controller.getFavicon);
+
 
 /*
     execute function getIndex()
@@ -37,6 +29,7 @@ app.get('/', controller.getIndex);
     defined in object `signupController` in `../controllers/signupController.js`
     when a client sends an HTTP GET request for `/signup`
 */
+app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
 
 /*
@@ -48,6 +41,10 @@ app.post('/login', loginController.postLogin);
 
 app.get('/register', registerController.getRegister);
 
+app.get('/profile', profileController.getProfile);
+
+app.post('/profile', profileController.postProfile);
+
 /*
     execute function postSignUp()
     defined in object `signupController` in `../controllers/signupController.js`
@@ -55,12 +52,6 @@ app.get('/register', registerController.getRegister);
 */
 app.post('/register', registerController.postRegister);
 
-/*
-    execute function getSuccess()
-    defined in object `successController` in `../controllers/successController.js`
-    when a client sends an HTTP GET request for `/success`
-*/
-app.get('/success', successController.getSuccess);
 
 /*
     execute function getProfile()

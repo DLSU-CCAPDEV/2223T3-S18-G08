@@ -7,9 +7,9 @@
     <body>
         <div class = "topnav">
             {{#ifCond active 'profile'}}
-                <a class = "active" href = "profile"> PROFILE </a>
+                <a class = "active" onclick="gotoprofile('adrielteng@yahoo.com')"> PROFILE </a>
             {{else}}
-                <a href = "profile"> PROFILE </a>
+                <a onclick="gotoprofile('adrielteng@yahoo.com')"> PROFILE </a>
             {{/ifCond}}
 
             {{#ifCond active 'searchslots'}}

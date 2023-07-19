@@ -16,7 +16,7 @@ const loginController = {
         as defined in `../routes/routes.js`
     */
     getLogin: function (req, res) {
-        res.render('index');
+        res.render('index',{active:'index'});
     },
 
     /*
@@ -42,7 +42,7 @@ const loginController = {
         var response = await db.findOne(User,user,'email password');
         if (response != null){
             if(response.password == password){
-                res.render('profile',{active:'profile'});
+                res.render('profile',{active:'profile',email:email});
             }else{
                 console.log('wrong password');
             }
