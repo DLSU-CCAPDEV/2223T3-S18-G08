@@ -266,3 +266,38 @@ table, th, td {
     margin-left: 10%;
     float: left;
 }
+
+
+
+
+
+
+
+.seatplan input[type="checkbox"]:not(:checked), 
+.seatplan input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+  
+.seatplan input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 18%;
+    text-align: center;
+
+}
+  
+.seatplan input[type="checkbox"]:checked + label {
+    border: 1px solid white;
+    color: black;
+    background-color: orange;
+}
+
+
+.seatplan {
+    border: 1px solid black;
+    
+}

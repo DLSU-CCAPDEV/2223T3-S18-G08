@@ -1,0 +1,35 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    </head>
+    <body>
+        <div class="seatplan">
+            <form class="content">
+                {{#times 20}}
+                    <input type="checkbox" id="seat{{this}}" name="seat{{this}}" value="seat{{this}}">
+                    <label for="seat{{this}}">SEAT {{this}}</label>
+                    
+                    {{#ifCond this 5}}
+                        <br>
+                    {{/ifCond}}
+
+                    {{#ifCond this 10}}
+                        <br>
+                    {{/ifCond}}
+
+                    {{#ifCond this 15}}
+                        <br>
+                    {{/ifCond}}
+
+                {{/times}}
+
+
+            </form>
+        </div>   
+    </body>
+</html>

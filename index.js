@@ -25,7 +25,21 @@ hbs.registerHelper('ifCond', function(v1, v2, options) {
       return options.fn(this);
     }
     return options.inverse(this);
-  });
+});
+
+hbs.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 1; i <= n; ++i)
+        accum += block.fn(i);
+    return accum;
+});
+
+hbs.registerHelper('divisible5', function(num, options){
+    if(num%5 === 0){
+      return options.fn(this);
+    }
+    return options.inverse(this);
+});
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));
 
