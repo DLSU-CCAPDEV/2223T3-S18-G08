@@ -26,7 +26,8 @@ function checkLogin(){
 }
 
 var slots = new Array();
-
+const currentuser = "adrielteng@yahoo.com";
+var selectedSeats = new Array();
 function makeArray(l, d, t, s) {
     for(i=0;i<l;i++){
         slots[i] = new Array();
@@ -102,17 +103,21 @@ function displayFreeSlots(){
 }
 
 function displaySlotsR(){
+    selectedSeats = new Array();
     var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
     table = document.getElementById("slots");
    
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
-            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + " \n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].name = i;
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
                     if(this.style.backgroundColor == "orange"){
+                        selectedSeats.pop(this.name);
                         this.style.backgroundColor = "transparent";}
                     else{
+                        selectedSeats.push(this.name);
                         this.style.backgroundColor = "orange";   
                     }
                 };
@@ -220,5 +225,70 @@ function gotoprofile(email){
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
-    
+}
+
+function gotoreserveslot(email){
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/studentreserve';
+        
+                
+            const hidden_input = document.createElement('input');
+            hidden_input.type = 'hidden';
+            hidden_input.name = 'email';
+            hidden_input.value = email;
+
+            hidden_form.appendChild(hidden_input);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+
+function setCurrentUser(email){
+    currentuser = email;
+}
+
+function studentreserve(email){
+    // Create form
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/studentreserved';
+        
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'lab';
+            hidden_input1.value = document.getElementById("lab_num").value-1;
+            const hidden_input2 = document.createElement('input');
+            hidden_input2.type = 'hidden';
+            hidden_input2.name = 'date';
+            hidden_input2.value = document.getElementById("day_num").value;
+            const hidden_input3 = document.createElement('input');
+            hidden_input3.type = 'hidden';
+            hidden_input3.name = 'time';
+            hidden_input3.value = document.getElementById("time").value;
+            const hidden_input4 = document.createElement('input');
+            hidden_input4.type = 'hidden';
+            hidden_input4.name = 'seat';
+            hidden_input4.value = JSON.stringify(selectedSeats);
+
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+            hidden_form.appendChild(hidden_input2);
+            hidden_form.appendChild(hidden_input3);
+            hidden_form.appendChild(hidden_input4);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
 }

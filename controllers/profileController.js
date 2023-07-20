@@ -17,60 +17,19 @@ const profileController = {
     */
     postProfile: async function (req, res) {
 
-        // query where `idNum` is equal to URL parameter `idNum`
         var email = req.body.email;
 
         var user = {
             email:email
         };
-        // fields to be returned
         var projection = 'email username description position myReservations';
 
-        /*
-            calls the function findOne()
-            defined in the `database` object in `../models/db.js`
-            this function searches the collection `users`
-            based on the value set in object `query`
-            the third parameter is a string containing fields to be returned
-            the fourth parameter is a callback function
-            this called when the database returns a value
-            saved in variable `result`
-        */
         var result = await db.findOne(User, user, projection);
         if (result != null){
-            res.render("profile", result,{active:'index'});
+            result.active = "profile";
+            res.render("profile", result);
         }else{
-            res.render("profile",{active:'index'});
-            //res.render("error");
-        }
-    },
-    getProfile: async function (req, res) {
-
-        // query where `idNum` is equal to URL parameter `idNum`
-        var email = req.body.email;
-
-        var user = {
-            email:email
-        };
-        // fields to be returned
-        var projection = 'email username description position myReservations';
-
-        /*
-            calls the function findOne()
-            defined in the `database` object in `../models/db.js`
-            this function searches the collection `users`
-            based on the value set in object `query`
-            the third parameter is a string containing fields to be returned
-            the fourth parameter is a callback function
-            this called when the database returns a value
-            saved in variable `result`
-        */
-        var result = await db.findOne(User, user, projection);
-        if (result != null){
-            res.render("profile", result,{active:'index'});
-        }else{
-            res.render("profile",{active:'index'});
-            //res.render("error");
+            res.render("error");
         }
     }
 }

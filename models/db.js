@@ -65,7 +65,7 @@ const database = {
         filtered by the object `filter`
     */
     updateOne: async function(model, filter, update) {
-        return await model.updateOne(filter, update, );
+        return await model.updateOne(filter, update );
     },
 
     /*
@@ -74,7 +74,7 @@ const database = {
         filtered using the object `filter`
     */
     updateMany: async function(model, filter, update) {
-        return await model.updateMany(filter, update, );
+        return await model.updateMany(filter, update );
     },
 
     /*

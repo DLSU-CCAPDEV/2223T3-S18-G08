@@ -12,6 +12,8 @@ const registerController = require('../controllers/registerController.js');
 
 // import module `profileController` from `../controllers/profileController.js`
 const profileController = require('../controllers/profileController.js');
+const searchslotsController = require('../controllers/searchslotsController.js');
+const studentreserveController = require('../controllers/studentreserveController.js');
 
 const app = express();
 
@@ -32,26 +34,17 @@ app.get('/', controller.getIndex);
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
 
-/*
-    execute function postSignUp()
-    defined in object `signupController` in `../controllers/signupController.js`
-    when a client sends an HTTP POST request for `/signup`
-*/
+app.post('/profile', profileController.postProfile);
+
 app.post('/login', loginController.postLogin);
 
 app.get('/register', registerController.getRegister);
-
-
-app.post('/profile', profileController.postProfile);
-
-/*
-    execute function postSignUp()
-    defined in object `signupController` in `../controllers/signupController.js`
-    when a client sends an HTTP POST request for `/signup`
-*/
 app.post('/register', registerController.postRegister);
 
+app.get('/searchslots',searchslotsController.getSlots);
 
+app.post('/studentreserve',studentreserveController.postgetSlots);
+app.post('/studentreserved',studentreserveController.postSlots);
 /*
     execute function getProfile()
     defined in object `profileController` in `../controllers/profileController.js`

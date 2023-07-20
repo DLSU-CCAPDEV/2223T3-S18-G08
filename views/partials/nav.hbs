@@ -7,9 +7,9 @@
     <body>
         <div class = "topnav">
             {{#ifCond active 'profile'}}
-                <a class = "active" onclick="gotoprofile('adrielteng@yahoo.com')"> PROFILE </a>
+                <a class = "active" onclick="gotoprofile('{{email}}')"> PROFILE </a>
             {{else}}
-                <a onclick="gotoprofile('adrielteng@yahoo.com')"> PROFILE </a>
+                <a onclick="gotoprofile('{{email}}')"> PROFILE </a>
             {{/ifCond}}
 
             {{#ifCond active 'searchslots'}}
@@ -19,9 +19,9 @@
             {{/ifCond}}
 
             {{#ifCond active 'studentreserve'}}
-                <a class = "active" href = "studentreserve"> RESERVE SLOT (STUDENT) </a>
+                <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
             {{else}}
-                <a href = "studentreserve"> RESERVE SLOT (STUDENT) </a>
+                <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
             {{/ifCond}}
 
             {{#ifCond active 'labtechnicianreserve'}}
@@ -41,15 +41,7 @@
             {{else}}
                  <a href = "searchusers"> SEARCH USER </a>
             {{/ifCond}}
-            
-            {{#ifCond active 'logout'}}
-                  <a class = "active" id = "right" href = "index"> LOGOUT </a>
-            {{else}}
-                  <a id = "right" href = "index"> LOGOUT </a>
-            {{/ifCond}}
-            
-           
-           
+            <a id = "right" href = "index"> LOGOUT</a>
         </div>  
     </body>
 </html>
