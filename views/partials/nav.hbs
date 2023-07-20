@@ -12,34 +12,41 @@
                 <a onclick="gotoprofile('{{email}}')"> PROFILE </a>
             {{/ifCond}}
 
-            {{#ifCond active 'searchslots'}}
-                <a class = "active" href = "searchslots"> SEARCH SLOTS </a>
-            {{else}}
-                <a href = "searchslots"> SEARCH SLOTS </a>
+            
+            
+            {{#ifCond position 'student'}}
+                {{#ifCond active 'searchslots'}}
+                <a class = "active" onclick="gotosearchslot('{{email}}')" href = "searchslots"> SEARCH SLOTS </a>
+                {{else}}
+                    <a onclick="gotosearchslot('{{email}}')" href = "searchslots"> SEARCH SLOTS </a>
+                {{/ifCond}}
+
+                {{#ifCond active 'studentreserve'}}
+                    <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
+                {{else}}
+                    <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
+                {{/ifCond}}
+            {{/ifCond}}
+            {{#ifCond position 'technician'}}
+                {{#ifCond active 'labtechnicianreserve'}}
+                    <a class = "active" onclick="gototreserveslot('{{email}}')" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+                {{else}}
+                    <a onclick="gototreserveslot('{{email}}')" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+                {{/ifCond}}
+
+                {{#ifCond active 'labtechnicianmodify'}}
+                    <a class = "active" onclick="gototmodifyslot('{{email}}')" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
+                {{else}}
+                    <a onclick="gototmodifyslot('{{email}}')" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
+                {{/ifCond}}
             {{/ifCond}}
 
-            {{#ifCond active 'studentreserve'}}
-                <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
-            {{else}}
-                <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
-            {{/ifCond}}
-
-            {{#ifCond active 'labtechnicianreserve'}}
-                <a class = "active" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
-            {{else}}
-                <a href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
-            {{/ifCond}}
-
-            {{#ifCond active 'labtechnicianmodify'}}
-                <a class = "active" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
-            {{else}}
-                <a href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
-            {{/ifCond}}
+            
             
             {{#ifCond active 'searchusers'}}
-                 <a class = "active" href = "searchusers"> SEARCH USER </a>
+                 <a class = "active" onclick="gotosearchuser('{{email}}')" href = "searchusers"> SEARCH USER </a>
             {{else}}
-                 <a href = "searchusers"> SEARCH USER </a>
+                 <a onclick="gotosearchuser('{{email}}')" href = "searchusers"> SEARCH USER </a>
             {{/ifCond}}
             <a id = "right" href = "index"> LOGOUT</a>
         </div>  

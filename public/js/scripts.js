@@ -92,14 +92,18 @@ function displaySlots(){
 
 function displayFreeSlots(){
     var displayslots = slots[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value];
-    var freeslots = "Free slots: ";
+    table = document.getElementById("slots");
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
-            freeslots = freeslots + "[Seat " + (i+1) + "] ";
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = "";
+        } else {
+            table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
+            table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile()};
         }
     }
-
-    document.getElementById("freeslots").innerHTML = freeslots;
+    
+    document.getElementById("slots").style.display = "block";
 }
 
 function displaySlotsR(){

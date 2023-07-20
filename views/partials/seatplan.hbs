@@ -9,27 +9,28 @@
     </head>
     <body>
         <div class="seatplan">
-            <form class="content">
+            <table id="slots">
                 {{#times 20}}
-                    <input type="checkbox" id="seat{{this}}" name="seat{{this}}" value="seat{{this}}">
-                    <label for="seat{{this}}">SEAT {{this}}</label>
-                    
+                    {{!-- <input type="checkbox" id="seat{{this}}" name="seat{{this}}" value="seat{{this}}">
+                    <label for="seat{{this}}">SEAT {{this}}</label> --}}
+                    <td> SEAT {{this}}<br>(Free) </td>
                     {{#ifCond this 5}}
-                        <br>
+                        </tr>
+                        <tr>
                     {{/ifCond}}
 
                     {{#ifCond this 10}}
-                        <br>
+                        </tr>
+                        <tr>
                     {{/ifCond}}
 
                     {{#ifCond this 15}}
-                        <br>
+                        </tr>
+                        <tr>
                     {{/ifCond}}
-
                 {{/times}}
-
-
-            </form>
+                    </tr>
+            </table>
         </div>   
     </body>
 </html>
