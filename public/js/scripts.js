@@ -117,7 +117,7 @@ function displaySlotsR(){
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
                     if(this.style.backgroundColor == "orange"){
-                        selectedSeats.pop(this.name);
+                        selectedSeats.splice(selectedSears.indexof(this.name),1);
                         this.style.backgroundColor = "transparent";}
                     else{
                         selectedSeats.push(this.name);
@@ -138,32 +138,28 @@ function remove(row){
     document.getElementById(row).remove();
 }
 
-function editReserve(l,d,t,s){
-    document.location.href = "studenteditslot.html?l="+l+"&d="+d+"&t="+t+"&s="+s;
-}
-function displaySlotsE(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString); 
-    var l = urlParams.get("l");
-    var d = urlParams.get("d");
-    var t = urlParams.get("t");
-    var s = urlParams.get("s");
+function displaySlotsE(users,l,d,t,s){
+    selectedSeats = new Array();
+    selectedSeats.push(s);
+    updateSlots(users);
     var displayslots = slots[l][d][t];
     table = document.getElementById("slots");
     document.getElementById("timeslot").innerHTML = "lab: " + (Number(l)+1) + " day: June, " + (Number(d)+20) + " time: " + getTime(t);
-   
     for(i = 0; i < 20; i++){
-        if(displayslots[i] == 0){
+        if(displayslots[i] == 0 || i == Number(s)){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
+            table.rows[Math.floor(i/5)].cells[i%5].name = i;
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
                     if(this.style.backgroundColor == "orange"){
+                        selectedSeats.pop(this.name);
                         this.style.backgroundColor = "transparent";}
                     else{
+                        selectedSeats.push(this.name);
                         this.style.backgroundColor = "orange";   
                     }
                 };
-            if(i == s){
+            if(i == Number(s)){
                 table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "orange";
             }
         } else {
@@ -422,4 +418,92 @@ function studentreserve(email){
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
+}
+function editReserve(email,l,d,t,s){
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/studenteditslot';
+        console.log(email);
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'lab';
+            hidden_input1.value = l;
+            const hidden_input2 = document.createElement('input');
+            hidden_input2.type = 'hidden';
+            hidden_input2.name = 'date';
+            hidden_input2.value = d;
+            const hidden_input3 = document.createElement('input');
+            hidden_input3.type = 'hidden';
+            hidden_input3.name = 'time';
+            hidden_input3.value = t;
+            const hidden_input4 = document.createElement('input');
+            hidden_input4.type = 'hidden';
+            hidden_input4.name = 'seat';
+            hidden_input4.value = s;
+
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+            hidden_form.appendChild(hidden_input2);
+            hidden_form.appendChild(hidden_input3);
+            hidden_form.appendChild(hidden_input4);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+function editreserved(email,lab,date,time,oldseat){
+    // Create form
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/studenteditedslot';
+        
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'lab';
+            hidden_input1.value = lab;
+            const hidden_input2 = document.createElement('input');
+            hidden_input2.type = 'hidden';
+            hidden_input2.name = 'date';
+            hidden_input2.value = date;
+            const hidden_input3 = document.createElement('input');
+            hidden_input3.type = 'hidden';
+            hidden_input3.name = 'time';
+            hidden_input3.value = time;
+            const hidden_input4 = document.createElement('input');
+            hidden_input4.type = 'hidden';
+            hidden_input4.name = 'oldseat';
+            hidden_input4.value = oldseat;
+            const hidden_input5 = document.createElement('input');
+            hidden_input5.type = 'hidden';
+            hidden_input5.name = 'seat';
+            hidden_input5.value = JSON.stringify(selectedSeats);
+
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+            hidden_form.appendChild(hidden_input2);
+            hidden_form.appendChild(hidden_input3);
+            hidden_form.appendChild(hidden_input4);
+            hidden_form.appendChild(hidden_input5);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+function formatreservation(doc,index,lab,date,time,seat){
+    console.log(lab);
+    doc.innerHTML = (Number(index)+1)+". Lab "+(Number(lab)+1)+", 6/"+(Number(date)+20)+"/2023, "+getTime(time)+"Seat: "+seat+" Created on: 6/15/2023, 9:53PM"
 }

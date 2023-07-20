@@ -7,6 +7,7 @@ const profileController = require('../controllers/profileController.js');
 const searchslotsController = require('../controllers/searchslotsController.js');
 const studentreserveController = require('../controllers/studentreserveController.js');
 const searchuserController = require('../controllers/searchuserController.js');
+const studenteditslotController = require('../controllers/studenteditslotController.js');
 
 const app = express();
 
@@ -26,6 +27,9 @@ app.post('/searchslots',searchslotsController.postgetSlots);
 
 app.post('/studentreserve',studentreserveController.postgetSlots);
 app.post('/studentreserved',studentreserveController.postSlots);
+
+app.post('/studenteditslot',studenteditslotController.postgetSlots);
+app.post('/studenteditedslot',studenteditslotController.postSlots);
 
 app.post('/searchuser',searchuserController.postgetSearch);
 app.post('/searcheduser',searchuserController.postSearch);

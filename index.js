@@ -33,6 +33,44 @@ hbs.registerHelper('times', function(n, block) {
         accum += block.fn(i);
     return accum;
 });
+
+hbs.registerHelper('add1', function(v) {
+    return Number(v)+1;
+});
+
+hbs.registerHelper('add20', function(v) {
+    return Number(v)+20;
+});
+
+hbs.registerHelper('gettime', function(v) {
+    switch(Number(v)){
+        case 0:
+            return "10:00AM-10:30AM";
+        case 1:
+            return "10:30AM-11:00AM";
+        case 2:
+            return "11:00AM-11:30AM";
+        case 3:
+            return "11:30AM-12:00AM";
+        case 4:
+            return "12:00AM-12:30AM";
+        case 5:
+            return "12:30AM-1:00AM";
+        case 6:
+            return "1:00AM-1:30AM";
+        case 7:
+            return "1:30AM-2:00AM";
+        case 8:
+            return "2:00AM-2:30AM";
+        case 9:
+            return "2:30AM-3:00AM";
+        case 10:
+            return "3:00AM-3:30AM";
+        case 11:
+            return "3:30AM-4:00AM";
+    }
+});
+
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));
 
@@ -46,7 +84,6 @@ app.use('/', routes);
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
 app.use(function (req, res) {
-    console.log("didnt exsist")
     res.render('error');
 });
 
