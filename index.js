@@ -46,6 +46,7 @@ app.use('/', routes);
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
 app.use(function (req, res) {
+    console.log("didnt exsist")
     res.render('error');
 });
 

@@ -18,12 +18,13 @@
             <p>Enter the email of the user you are searching for:</p>
             <label for="find_email"> Email of user: </label><br>
             <input type="email" placeholder="Enter Email" id="find_email" name="find_email" required><br>
-            <input type="submit" onclick = 'searchUser()' value = "Search user">
-
-            <div id = "search-result" onclick="viewProfile()" style="border:2px solid; vertical-align: middle; display:none;">
-                <img id = "search-profile-picture" src="/image/profilepicture.jpg">
-                <p style = "display: inline-block;">juan_dela_cruz@dlsu.edu.ph</p>
-            </div>
+            <input type="submit" onclick = "searchUser('{{email}}')" value = "Search user">
+            {{#ifCond display 'true'}}
+                <div id = "search-result" onclick="viewProfile('{{email}}','{{viewing_email}}')" style="border:2px solid; vertical-align: middle;">
+                    <img id = "search-profile-picture" src="/image/profilepicture.jpg">
+                    <p id = "search-profile-email" style = "display: inline-block;">{{viewing_email}}</p>
+                </div>
+            {{/ifCond}}
 
         </div>
     </body>

@@ -61,7 +61,6 @@ const registerController = {
                 res.render('error');
             }
         }else{
-            console.log('repeat');
             res.render('error');
         }
     }

@@ -15,9 +15,14 @@ const studentreserveController = {
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
     */
-    postgetSlots: function (req, res) {
+    postgetSlots: async function (req, res) {
         var email = req.body.email;
-        res.render('studentreserve',{email:email});
+        var user = {
+            email: email
+        };
+        var position = await db.findOne(User,user,'position');
+        position = position.position;
+        res.render('studentreserve',{email:email,position:position});
     },
 
     /*

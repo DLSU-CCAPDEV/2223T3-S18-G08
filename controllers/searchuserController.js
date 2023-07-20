@@ -9,43 +9,45 @@ const User = require('../models/UserModel.js');
     defines an object which contains functions executed as callback
     when a client requests for `signup` paths in the server
 */
-const searchslotsController = {
+const searchuserController = {
 
     /*
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
     */
-    postgetSlots: async function (req, res) {
+    postgetSearch: async function (req, res) {
         var email = req.body.email;
-        //const filter = {};
-        var data = await db.findMany(User,{},'email username myReservations');
         var user = {
             email: email
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        if(data != null){
-            data = JSON.stringify(data);
-            res.render('searchslots',{email:email,position:position,data:data});
-        }else{
-            res.render('error');
-        }
+        res.render('searchusers',{email:email,position:position});
     },
 
     /*
         executed when the client sends an HTTP POST request `/signup`
         as defined in `../routes/routes.js`
     */
-    postSlots: async function (req, res) {
+    postSearch: async function (req, res) {
 
-        /*
-            when submitting forms using HTTP POST method
-            the values in the input fields are stored in `req.body` object
-            each <input> element is identified using its `name` attribute
-            Example: the value entered in <input type="text" name="fName">
-            can be retrieved using `req.body.fName`
-        */
-        
+        var email = req.body.email;
+        var find_email = req.body.find_email;
+        var user = {
+            email: email
+        };
+        var find_user = {
+            email: find_email
+        };
+        var position = await db.findOne(User,user,'position');
+        position = position.position;
+        var result = await db.findOne(User,find_user,'email');
+        if(result!=null){
+            result = result.email;
+            res.render('searchusers',{email:email,position:position,viewing_email:result,display:'true'});
+        }else{
+            res.render('error');
+        }
     }
 }
 
@@ -53,4 +55,4 @@ const searchslotsController = {
     exports the object `signupController` (defined above)
     when another script exports from this file
 */
-module.exports = searchslotsController;
+module.exports = searchuserController;

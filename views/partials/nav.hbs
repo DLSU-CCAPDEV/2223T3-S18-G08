@@ -16,9 +16,9 @@
             
             {{#ifCond position 'student'}}
                 {{#ifCond active 'searchslots'}}
-                <a class = "active" onclick="gotosearchslot('{{email}}')" href = "searchslots"> SEARCH SLOTS </a>
+                <a class = "active" onclick="gotosearchslot('{{email}}')"> SEARCH SLOTS </a>
                 {{else}}
-                    <a onclick="gotosearchslot('{{email}}')" href = "searchslots"> SEARCH SLOTS </a>
+                    <a onclick="gotosearchslot('{{email}}')"> SEARCH SLOTS </a>
                 {{/ifCond}}
 
                 {{#ifCond active 'studentreserve'}}
@@ -44,9 +44,9 @@
             
             
             {{#ifCond active 'searchusers'}}
-                 <a class = "active" onclick="gotosearchuser('{{email}}')" href = "searchusers"> SEARCH USER </a>
+                 <a class = "active" onclick="gotosearchuser('{{email}}')"> SEARCH USER </a>
             {{else}}
-                 <a onclick="gotosearchuser('{{email}}')" href = "searchusers"> SEARCH USER </a>
+                 <a onclick="gotosearchuser('{{email}}')"> SEARCH USER </a>
             {{/ifCond}}
             <a id = "right" href = "index"> LOGOUT</a>
         </div>  
