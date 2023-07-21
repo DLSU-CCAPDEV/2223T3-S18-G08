@@ -278,7 +278,13 @@ table, th, td {
 }
 
 
+.big {
+    font-size: 100px;
+}
 
+.center {
+    text-align: center;
+}
 
 
 
