@@ -174,6 +174,31 @@ function getTime(t){
     }
 }
 
+function searchUserTech(email){
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/techmodify';
+        
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'find_email';
+            hidden_input1.value = document.getElementById("find_email").value;
+
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+
 function searchUser(email){
     const hidden_form = document.createElement('form');
 
