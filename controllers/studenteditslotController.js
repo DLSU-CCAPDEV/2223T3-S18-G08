@@ -28,12 +28,10 @@ const studenteditslotController = {
         console.log(email);
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        if(data != null){
-            data = JSON.stringify(data);
-            res.render('studenteditslot',{email:email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
-        }else{
-            res.render('error');
-        }
+        
+        data = JSON.stringify(data);
+        res.render('studenteditslot',{email:email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
+        
     },
 
     /*
@@ -90,7 +88,7 @@ const studenteditslotController = {
                 result.active = "profile";
                 res.render("profile", result);
             }else{
-                res.render("error");
+                res.render('error',{error:'This user was not found.'});
             }
         }
     }

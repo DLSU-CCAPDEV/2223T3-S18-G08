@@ -30,7 +30,7 @@ const viewprofileController = {
             result.active = "profile";
             res.render("viewprofile", {email:email,data:result});
         }else{
-            res.render("error");
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }

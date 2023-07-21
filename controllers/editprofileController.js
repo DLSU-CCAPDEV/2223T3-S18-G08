@@ -54,7 +54,7 @@ const editprofileController = {
             response.active = 'profile';
             res.render('profile',response);
         }else{
-            res.render('error',{error:''});
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }

@@ -29,7 +29,7 @@ const profileController = {
             result.active = "profile";
             res.render("profile", result);
         }else{
-            res.render("error");
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }

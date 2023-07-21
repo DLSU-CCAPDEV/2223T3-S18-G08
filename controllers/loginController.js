@@ -45,10 +45,10 @@ const loginController = {
                 response.active = 'profile';
                 res.render('profile',response);
             }else{
-                console.log('wrong password');
+                res.render('error',{error:'Wrong password.'});
             }
         }else{
-            res.render('error');
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }
