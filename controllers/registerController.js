@@ -16,7 +16,7 @@ const registerController = {
         as defined in `../routes/routes.js`
     */
     getRegister: function (req, res) {
-        res.render('register');
+        res.render('register',{active:'register'});
     },
 
     /*

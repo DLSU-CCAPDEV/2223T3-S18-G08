@@ -52,9 +52,11 @@ const studentreserveController = {
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
         if(old != null){
-            old.myReservations.forEach(e => {
-                reservations.push(e);
-            });
+            if(old.myReservations != null){
+                old.myReservations.forEach(e => {
+                    reservations.push(e);
+                });
+            }
             seat.forEach(e => {
                 var reservation = {
                     lab:lab,
