@@ -84,7 +84,7 @@ app.use('/', routes);
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
 app.use(function (req, res) {
-    res.render('error');
+    res.render('error',{error:'Root does not exist.'});
 });
 
 // connects to the database

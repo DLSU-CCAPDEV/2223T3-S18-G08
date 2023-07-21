@@ -23,29 +23,12 @@ const searchslotsController = {
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        if(data != null){
-            data = JSON.stringify(data);
-            res.render('searchslots',{email:email,position:position,data:data,active:'studentreserve'});
-        }else{
-            res.render('error');
-        }
+        
+        data = JSON.stringify(data);
+        res.render('searchslots',{email:email,position:position,data:data,active:'studentreserve'});
+        
     },
 
-    /*
-        executed when the client sends an HTTP POST request `/signup`
-        as defined in `../routes/routes.js`
-    */
-    postSlots: async function (req, res) {
-
-        /*
-            when submitting forms using HTTP POST method
-            the values in the input fields are stored in `req.body` object
-            each <input> element is identified using its `name` attribute
-            Example: the value entered in <input type="text" name="fName">
-            can be retrieved using `req.body.fName`
-        */
-        
-    }
 }
 
 /*

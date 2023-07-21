@@ -55,13 +55,13 @@ const registerController = {
                 if(response){
                     res.render('index');
                 }else{
-                    res.render('error');
+                    res.render('error',{error:'Database error.'});
                 }
             }else{
-                res.render('error');
+                res.render('error',{error:'Password and confirm password do not match.'});
             }
         }else{
-            res.render('error');
+            res.render('error',{error:'This email is already registered.'});
         }
     }
 }

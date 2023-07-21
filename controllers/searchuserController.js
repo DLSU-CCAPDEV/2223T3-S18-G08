@@ -46,7 +46,7 @@ const searchuserController = {
             result = result.email;
             res.render('searchusers',{email:email,position:position,viewing_email:result,display:'true'});
         }else{
-            res.render('error');
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }
