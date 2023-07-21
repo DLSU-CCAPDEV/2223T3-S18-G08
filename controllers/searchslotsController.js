@@ -17,7 +17,6 @@ const searchslotsController = {
     */
     postgetSlots: async function (req, res) {
         var email = req.body.email;
-        //const filter = {};
         var data = await db.findMany(User,{},'email username myReservations');
         var user = {
             email: email
@@ -26,7 +25,7 @@ const searchslotsController = {
         position = position.position;
         if(data != null){
             data = JSON.stringify(data);
-            res.render('searchslots',{email:email,position:position,data:data});
+            res.render('searchslots',{email:email,position:position,data:data,active:'studentreserve'});
         }else{
             res.render('error');
         }

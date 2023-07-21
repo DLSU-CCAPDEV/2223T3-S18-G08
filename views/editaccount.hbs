@@ -15,27 +15,41 @@
         </h1>
 
         <div class="content">
-            <form class="form-style">
+            <form id = "editform" class="form-style" method="post" action="/saveprofile">
                 <p> Account type: </p>
-                <input type="radio" id="student" name="accounttype">
-                <label for="student"> Student </label>
-                <input type="radio" id="labtechnician" name="accounttype">
-                <label for="accounttype"> Lab technician</label><br><br>
+                {{#ifCond position 'student'}}
+                    <input type="radio" id="student" name="accounttype" value="student" selected required>
+                    <label for="student"> Student </label>
+                {{else}}
+                    <input type="radio" id="student" name="accounttype" value="student" required>
+                    <label for="student"> Student </label>
+                {{/ifCond}}
+                
+                {{#ifCond position 'technician'}}
+                    <input type="radio" id="labtechnician" name="accounttype" value="technician" selected required>
+                    <label for="labtechnician"> Lab technician</label><br><br>
+                {{else}}
+                    <input type="radio" id="labtechnician" name="accounttype" value="technician" required>
+                    <label for="labtechnician"> Lab technician</label><br><br>
+                {{/ifCond}}
+
+                
 
                 <label for="username"> Username </label><br>
-                <input type="text" placeholder="Enter Username" id="username" name="username"><br>
-                <label for="profile-picture"> Profile Picture </label><br><br>
-                <input type="file" placeholder="Upload Picture" id="profile-picture" name="profile-picture"><br><br>
+                <input type="text" id="username" name="username" value="{{username}}"><br>
+                {{!-- <label for="profile-picture"> Profile Picture </label><br><br>
+                <input type="file" placeholder="Upload Picture" id="profile-picture" name="profile-picture"><br><br> --}}
                 <label for="description"> Your Description </label><br>
-                <input type="text" placeholder="Enter Your Description" id="description" name="description"><br>
+                <input type="text" id="description" name="description" value="{{description}}"><br>
+                <input type="hidden" id="email" name="email" value="{{email}}">
             </form>
         </div>
 
         <div class = "save-account-changes">
-            <a class = "button1" href = "profile"> Save Changes </a>
+            <a class = "button1" onclick="getElementById('editform').submit();"> Save Changes </a>
         </div>
         <div class = "cancel-account-changes">
-            <a class = "button1" href = "profile"> Cancel Changes </a>
+            <a class = "button1" onclick="gotoprofile('{{email}}')"> Cancel Changes </a>
         </div>
     </body>
 </html>

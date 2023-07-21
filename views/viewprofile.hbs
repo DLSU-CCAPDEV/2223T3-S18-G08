@@ -19,28 +19,29 @@
                 <img class = "profile-picture" style = "border: 1px solid;" src="/image/profilepicture.jpg">
 
                 <div class = "user-type" style = "border: 1px solid;">
-                    <p id="user-type-text" style = "text-align: center;"> STUDENT </p>
+                    <p id="user-type-text" style = "text-align: center;"> {{data.position}} </p>
                 </div>
             </div>
             <div class = "profile-right-side" style = "border: 1px solid;">
-                <p style = "margin:5px; line-height:25px;">Username: JDL<br>Email: juan_dela_cruz@dlsu.edu.ph<br>Hi, I am an undergraduate student studying BS Computer Science in DLSU.</p>
+                <p style = "margin:5px; line-height:25px;">Username: {{data.username}}<br>Email:{{data.email}}<br>{{data.description}}</p>
             </div>
         </div>
 
         <div class = "content" style = "margin-left: 10%; margin-right: 10%;">
             <table class = "lab-reservations" style = "width: 100%; margin: auto;">
                 <th colspan = "2"> Lab Reservations </th>
-                <tr> 
-                    <td> 1. Lab 1, 6/20/2023, 10:00AM - 10:30PM: Seat 2 Created on: 6/15/2023, 9:53PM</td>
-                </tr>
+                {{#each data.myReservations}}
                 <tr>
-                    <td> 2. Lab 3, 6/26/2023, 3:30PM - 4:00PM: Seat 2 Created on: 6/17/2023, 11:27PM</td>
+                    <td>
+                        {{add1 @index}}. Lab {{add1 lab}}, 6/{{add20 date}}/2023, {{gettime time}}: Seat: {{add1 seat}} Created on: 6/15/2023, 9:53PM"
+                    </td>
                 </tr>
+                {{/each}}
             </table>
-        </div>
+        {{!-- </div>
 
         <div class = "return-profile">
             <a class = "button3" href="profile"> Return to Profile </a>
-        </div>
+        </div> --}}
     </body>
 </html>

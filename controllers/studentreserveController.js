@@ -17,12 +17,14 @@ const studentreserveController = {
     */
     postgetSlots: async function (req, res) {
         var email = req.body.email;
+        var data = await db.findMany(User,{},'email username myReservations');
+        data = JSON.stringify(data);
         var user = {
             email: email
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        res.render('studentreserve',{email:email,position:position});
+        res.render('studentreserve',{email:email,position:position,data:data});
     },
 
     /*

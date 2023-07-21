@@ -16,7 +16,7 @@
 
         <div class = "profile-details">
             <div class = "profile-left-side">
-                <img class = "profile-picture" style = "border: 1px solid;" src="profilepicture.jpg">
+                <img class = "profile-picture" style = "border: 1px solid;" src="/image/profilepicture.jpg">
 
                 <div class = "user-type" style = "border: 1px solid;">
                     <p id="user-type-text" style = "text-align: center;"> {{position}} </p>
@@ -42,7 +42,7 @@
         </div>
 
         <div class = "edit-account">
-            <a class = "button1" href="editaccount.html"> Edit Account </a>
+            <a class = "button1" onclick = "editprofile('{{email}}','{{username}}','{{description}}','{{position}}')"> Edit Account </a>
         </div>
         <div class = "delete-account">
             <a class = "button1" href="index"> Delete Account </a>

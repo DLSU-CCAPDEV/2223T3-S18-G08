@@ -26,32 +26,6 @@ function makeArray(l, d, t, s) {
             }
         }
     }
-
-    // slots[0][0][0][7] = "Andre";
-    // slots[0][0][0][8] = "Andre";
-    // slots[0][0][0][9] = "Andre";
-    // slots[0][0][0][5] = "Ethan";
-    // slots[0][0][0][6] = "Ethan";
-    // slots[0][0][0][10] = "Ethan";
-    // slots[0][0][0][11] = "Ethan";
-
-    // slots[1][0][0][5] = "AJ";
-    // slots[1][0][0][6] = "AJ";
-    // slots[1][0][0][7] = "AJ";
-    // slots[1][0][0][8] = "AJ";
-    // slots[1][0][0][9] = "AJ";
-    // slots[1][0][0][15] = "Arren";
-    // slots[1][0][0][16] = "Arren";
-    // slots[1][0][0][17] = "Arren";
-    // slots[1][0][0][18] = "Arren";
-    // slots[1][0][0][19] = "Arren";
-    
-    // slots[2][0][0][1] = "Adriel";
-    // slots[2][0][0][2] = "Adriel";
-    // slots[2][0][0][6] = "Adriel";
-    // slots[2][0][0][7] = "Adriel";
-    // slots[2][0][0][11] = "Adriel";
-    // slots[2][0][0][12] = "Adriel";
 }
 
 
@@ -87,7 +61,6 @@ function updateSlots(users){
 
 function displayFreeSlots(users,email){
     updateSlots(users);
-    console.log(emails);
     var displayslots = slots[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value];
     table = document.getElementById("slots");
     for(i = 0; i < 20; i++){
@@ -105,7 +78,8 @@ function displayFreeSlots(users,email){
     document.getElementById("slots").style.display = "block";
 }
 
-function displaySlotsR(){
+function displaySlotsR(users){
+    updateSlots(users);
     selectedSeats = new Array();
     var displayslots = slots[document.getElementById("lab_num").value-1][document.getElementById("day_num").value][document.getElementById("time").value];
     table = document.getElementById("slots");
@@ -243,6 +217,42 @@ function gotoprofile(email){
             hidden_input.value = email;
 
             hidden_form.appendChild(hidden_input);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+
+function editprofile(email,username,description,position){
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/editprofile';
+        
+                
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'username';
+            hidden_input1.value = username;
+            const hidden_input2 = document.createElement('input');
+            hidden_input2.type = 'hidden';
+            hidden_input2.name = 'description';
+            hidden_input2.value = description;
+            const hidden_input3 = document.createElement('input');
+            hidden_input3.type = 'hidden';
+            hidden_input3.name = 'position';
+            hidden_input3.value = position;
+
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+            hidden_form.appendChild(hidden_input2);
+            hidden_form.appendChild(hidden_input3);
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
@@ -427,7 +437,6 @@ function editReserve(email,l,d,t,s){
         
     // Set path
     hidden_form.action = '/studenteditslot';
-        console.log(email);
             const hidden_input0 = document.createElement('input');
             hidden_input0.type = 'hidden';
             hidden_input0.name = 'email';
@@ -502,8 +511,4 @@ function editreserved(email,lab,date,time,oldseat){
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
-}
-function formatreservation(doc,index,lab,date,time,seat){
-    console.log(lab);
-    doc.innerHTML = (Number(index)+1)+". Lab "+(Number(lab)+1)+", 6/"+(Number(date)+20)+"/2023, "+getTime(time)+"Seat: "+seat+" Created on: 6/15/2023, 9:53PM"
 }

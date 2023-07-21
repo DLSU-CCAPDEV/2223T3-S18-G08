@@ -8,6 +8,8 @@ const searchslotsController = require('../controllers/searchslotsController.js')
 const studentreserveController = require('../controllers/studentreserveController.js');
 const searchuserController = require('../controllers/searchuserController.js');
 const studenteditslotController = require('../controllers/studenteditslotController.js');
+const viewprofileController = require('../controllers/viewprofileController.js');
+const editprofileController = require('../controllers/editprofileController.js');
 
 const app = express();
 
@@ -17,6 +19,11 @@ app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
 
 app.post('/profile', profileController.postProfile);
+
+app.post('/viewprofile',viewprofileController.postViewProfile);
+
+app.post('/editprofile',editprofileController.postgetEditProfile);
+app.post('/saveprofile',editprofileController.postEditProfile);
 
 app.post('/login', loginController.postLogin);
 
@@ -33,5 +40,6 @@ app.post('/studenteditedslot',studenteditslotController.postSlots);
 
 app.post('/searchuser',searchuserController.postgetSearch);
 app.post('/searcheduser',searchuserController.postSearch);
+
 
 module.exports = app;
