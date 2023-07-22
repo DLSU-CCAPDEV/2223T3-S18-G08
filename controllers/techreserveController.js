@@ -9,7 +9,7 @@ const User = require('../models/UserModel.js');
     defines an object which contains functions executed as callback
     when a client requests for `signup` paths in the server
 */
-const studentreserveController = {
+const techreserveController = {
 
     /*
         executed when the client sends an HTTP GET request `/signup`
@@ -24,7 +24,7 @@ const studentreserveController = {
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        res.render('studentreserve',{active:'studentreserve',email:email,position:position,data:data});
+        res.render('labtechnicianreserve',{active:'studentreserve',email:email,position:position,data:data});
     },
 
     /*
@@ -41,12 +41,14 @@ const studentreserveController = {
             can be retrieved using `req.body.fName`
         */
         var email = req.body.email;
+        var student_email = req.body.student_email;
         var lab =  Number(req.body.lab);
         var date = Number(req.body.date);
         var time = Number(req.body.time);
         var seat = JSON.parse(req.body.seat);
+        var anon = req.body.anon;
         var user = {
-            email:email
+            email:student_email
         };
         var reservations = new Array();
         
@@ -66,6 +68,7 @@ const studentreserveController = {
                     time:time,
                     seat:e
                 };
+                    //anon:anon,
                 if(!reservations.some(a=>a.seat===e)){
                     reservations.push(reservation);
                 }
@@ -74,6 +77,9 @@ const studentreserveController = {
                 myReservations:reservations
             };
             await db.updateOne(User,user,change);
+            var user = {
+                email:email
+            };
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";
@@ -89,4 +95,4 @@ const studentreserveController = {
     exports the object `signupController` (defined above)
     when another script exports from this file
 */
-module.exports = studentreserveController;
+module.exports = techreserveController;

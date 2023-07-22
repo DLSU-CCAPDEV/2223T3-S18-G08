@@ -55,7 +55,7 @@
                 <option value="11">3:30PM-4:00PM</option>
             </select>
     
-            <input type="submit" onclick = 'displaySlotsR()' value = "Submit">
+            <input type="button" onclick = "displaySlotsR('{{data}}')" value = "Submit">
     
             <table id="slots">
                 <tr>
@@ -91,13 +91,11 @@
             <p>Enter the email of the student you are reserving for:</p>
             <label for="student_email"> Student email: </label><br>
             <input type="email" placeholder="Enter Email" id="student_email" name="student_email" required>
-    
-            
             <br>
             <input type="checkbox" id="reserveanonymously" name="reserveanonymously">
             <label for="reserveanonymously"> Reserve Anonymously </label><br>
 
-            <input type="submit" onclick = '(function(){document.location.href = "profile.html";})()' value = "Reserve">
+            <input type="submit" onclick = "reservetech('{{email}}')" value = "Reserve">
         </div>
     </body>
 </html>

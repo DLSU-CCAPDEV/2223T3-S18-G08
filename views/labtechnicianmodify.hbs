@@ -17,12 +17,10 @@
         <div class = "content">
             <p>Enter the email of the student whose reservation you will modify:</p>
             <label for="find_email"> Email of user: </label><br>
-            <form>
                 <input type="email" placeholder="Enter Email" id="find_email" name="find_email" required><br>
                 <input type="submit" onclick = "searchUserTech('{{email}}')" value = "Search user">
-            </form>
             {{#ifCond display 'true'}}
-            <div id = "search-result" style="border:2px solid; vertical-align: middle; display:none;">
+            <div id = "search-result" style="border:2px solid; vertical-align: middle;">
                 <table class = "lab-reservations" style = "width: 100%; margin: auto;">
                     <th colspan = "2"> Lab Reservations </th>
                     {{#each myReservations}}

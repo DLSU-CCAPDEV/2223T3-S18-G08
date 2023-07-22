@@ -9,50 +9,44 @@ const User = require('../models/UserModel.js');
     defines an object which contains functions executed as callback
     when a client requests for `signup` paths in the server
 */
-const searchuserController = {
+const modifytechController = {
 
     /*
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
-    */
-    postgetSearch: async function (req, res) {
+    */postgetModifyTech: async function (req, res) {
         var email = req.body.email;
         var user = {
             email: email
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        res.render('searchusers',{active:'searchusers',email:email,position:position});
+        res.render("labtechnicianmodify", {active:'labtechnicianmodify',email:email,display:'false',position:position});
     },
-
-    /*
-        executed when the client sends an HTTP POST request `/signup`
-        as defined in `../routes/routes.js`
-    */
-    postSearch: async function (req, res) {
-
+    postModifyTech: async function (req, res) {
         var email = req.body.email;
-        var find_email = req.body.find_email;
+        var editing_email = req.body.find_email;
         var user = {
             email: email
         };
-        var find_user = {
-            email: find_email
-        };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        var result = await db.findOne(User,find_user,'email');
-        if(result!=null){
-            result = result.email;
-            res.render('searchusers',{active:'searchusers',email:email,position:position,viewing_email:result,display:'true'});
+        var projection = 'myReservations';
+        var user = {
+            email: editing_email
+        };
+        var result = await db.findOne(User, user, projection);
+        if (result != null){
+            result.active = "labtechnicianmodify";
+            result.email = email;
+            result.editing_email = editing_email;
+            result.position = position;
+            result.display = 'true';
+            res.render("labtechnicianmodify", result);
         }else{
             res.render('error',{error:'This user was not found.'});
         }
     }
 }
 
-/*
-    exports the object `signupController` (defined above)
-    when another script exports from this file
-*/
-module.exports = searchuserController;
+module.exports = modifytechController;

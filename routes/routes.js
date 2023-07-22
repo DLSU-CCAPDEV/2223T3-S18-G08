@@ -10,6 +10,8 @@ const searchuserController = require('../controllers/searchuserController.js');
 const studenteditslotController = require('../controllers/studenteditslotController.js');
 const viewprofileController = require('../controllers/viewprofileController.js');
 const editprofileController = require('../controllers/editprofileController.js');
+const modifytechController = require('../controllers/modifytechController.js');
+const techreserveController = require('../controllers/techreserveController.js');
 
 const app = express();
 
@@ -41,5 +43,11 @@ app.post('/studenteditedslot',studenteditslotController.postSlots);
 app.post('/searchuser',searchuserController.postgetSearch);
 app.post('/searcheduser',searchuserController.postSearch);
 
+app.post('/techmodify',modifytechController.postgetModifyTech);
+app.post('/techmodifying',modifytechController.postModifyTech);
+
+
+app.post('/techreserve',techreserveController.postgetSlots);
+app.post('/techreserved',techreserveController.postSlots);
 
 module.exports = app;

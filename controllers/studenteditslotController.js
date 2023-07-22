@@ -17,6 +17,7 @@ const studenteditslotController = {
     */
     postgetSlots: async function (req, res) {
         var email = req.body.email;
+        var editing_email = req.body.editing_email;
         var lab =  Number(req.body.lab);
         var date = Number(req.body.date);
         var time = Number(req.body.time);
@@ -25,12 +26,11 @@ const studenteditslotController = {
         var user = {
             email: email
         };
-        console.log(email);
         var position = await db.findOne(User,user,'position');
         position = position.position;
         
         data = JSON.stringify(data);
-        res.render('studenteditslot',{email:email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
+        res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
         
     },
 
@@ -48,13 +48,15 @@ const studenteditslotController = {
             can be retrieved using `req.body.fName`
         */
         var email = req.body.email;
+
+        var editing_email = req.body.editing_email;
         var lab =  Number(req.body.lab);
         var date = Number(req.body.date);
         var time = Number(req.body.time);
         var oldseat = Number(req.body.oldseat);
         var seat = JSON.parse(req.body.seat);
         var user = {
-            email:email
+            email:editing_email
         };
         var reservations = new Array();
         var projection = 'email username description position myReservations';
@@ -83,6 +85,9 @@ const studenteditslotController = {
                 myReservations:reservations
             };
             await db.updateOne(User,user,change);
+            var user = {
+                email:email
+            };
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";

@@ -181,7 +181,7 @@ function searchUserTech(email){
     hidden_form.method = 'post';
         
     // Set path
-    hidden_form.action = '/techmodify';
+    hidden_form.action = '/techmodifying';
         
             const hidden_input0 = document.createElement('input');
             hidden_input0.type = 'hidden';
@@ -325,7 +325,7 @@ function gotoTreserveslot(email){
     hidden_form.submit();
 }
 
-function gototmodifyslot(email){
+function gotoTmodifyslot(email){
     const hidden_form = document.createElement('form');
 
     // Set method to post by default
@@ -454,7 +454,57 @@ function studentreserve(email){
     document.body.appendChild(hidden_form);
     hidden_form.submit();
 }
-function editReserve(email,l,d,t,s){
+function reservetech(email){
+    // Create form
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/techreserved';
+        
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+            const hidden_input1 = document.createElement('input');
+            hidden_input1.type = 'hidden';
+            hidden_input1.name = 'student_email';
+            hidden_input1.value = document.getElementById("student_email");
+            const hidden_input2 = document.createElement('input');
+            hidden_input2.type = 'hidden';
+            hidden_input2.name = 'lab';
+            hidden_input2.value = document.getElementById("lab_num").value-1;
+            const hidden_input3 = document.createElement('input');
+            hidden_input3.type = 'hidden';
+            hidden_input3.name = 'date';
+            hidden_input3.value = document.getElementById("day_num").value;
+            const hidden_input4 = document.createElement('input');
+            hidden_input4.type = 'hidden';
+            hidden_input4.name = 'time';
+            hidden_input4.value = document.getElementById("time").value;
+            const hidden_input5 = document.createElement('input');
+            hidden_input5.type = 'hidden';
+            hidden_input5.name = 'seat';
+            hidden_input5.value = JSON.stringify(selectedSeats);
+            const hidden_input6 = document.createElement('input');
+            hidden_input6.type = 'hidden';
+            hidden_input6.name = 'anon';
+            hidden_input6.value = document.getElementById("reserveanonymously").checked;
+            //console.log(document.getElementById("reserveanonymously").checked);
+            hidden_form.appendChild(hidden_input0);
+            hidden_form.appendChild(hidden_input1);
+            hidden_form.appendChild(hidden_input2);
+            hidden_form.appendChild(hidden_input3);
+            hidden_form.appendChild(hidden_input4);
+            hidden_form.appendChild(hidden_input5);
+            hidden_form.appendChild(hidden_input6);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+function editReserve(email,editing_email,l,d,t,s){
     const hidden_form = document.createElement('form');
 
     // Set method to post by default
@@ -468,31 +518,37 @@ function editReserve(email,l,d,t,s){
             hidden_input0.value = email;
             const hidden_input1 = document.createElement('input');
             hidden_input1.type = 'hidden';
-            hidden_input1.name = 'lab';
-            hidden_input1.value = l;
+            hidden_input1.name = 'editing_email';
+            hidden_input1.value = editing_email;
             const hidden_input2 = document.createElement('input');
             hidden_input2.type = 'hidden';
-            hidden_input2.name = 'date';
-            hidden_input2.value = d;
+            hidden_input2.name = 'lab';
+            hidden_input2.value = l;
             const hidden_input3 = document.createElement('input');
             hidden_input3.type = 'hidden';
-            hidden_input3.name = 'time';
-            hidden_input3.value = t;
+            hidden_input3.name = 'date';
+            hidden_input3.value = d;
             const hidden_input4 = document.createElement('input');
             hidden_input4.type = 'hidden';
-            hidden_input4.name = 'seat';
-            hidden_input4.value = s;
+            hidden_input4.name = 'time';
+            hidden_input4.value = t;
+            const hidden_input5 = document.createElement('input');
+            hidden_input5.type = 'hidden';
+            hidden_input5.name = 'seat';
+            hidden_input5.value = s;
 
             hidden_form.appendChild(hidden_input0);
             hidden_form.appendChild(hidden_input1);
             hidden_form.appendChild(hidden_input2);
             hidden_form.appendChild(hidden_input3);
             hidden_form.appendChild(hidden_input4);
+            hidden_form.appendChild(hidden_input5);
+
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
 }
-function editreserved(email,lab,date,time,oldseat){
+function editreserved(email,editing_email,lab,date,time,oldseat){
     // Create form
     const hidden_form = document.createElement('form');
 
@@ -508,24 +564,28 @@ function editreserved(email,lab,date,time,oldseat){
             hidden_input0.value = email;
             const hidden_input1 = document.createElement('input');
             hidden_input1.type = 'hidden';
-            hidden_input1.name = 'lab';
-            hidden_input1.value = lab;
+            hidden_input1.name = 'editing_email';
+            hidden_input1.value = editing_email;
             const hidden_input2 = document.createElement('input');
             hidden_input2.type = 'hidden';
-            hidden_input2.name = 'date';
-            hidden_input2.value = date;
+            hidden_input2.name = 'lab';
+            hidden_input2.value = lab;
             const hidden_input3 = document.createElement('input');
             hidden_input3.type = 'hidden';
-            hidden_input3.name = 'time';
-            hidden_input3.value = time;
+            hidden_input3.name = 'date';
+            hidden_input3.value = date;
             const hidden_input4 = document.createElement('input');
             hidden_input4.type = 'hidden';
-            hidden_input4.name = 'oldseat';
-            hidden_input4.value = oldseat;
+            hidden_input4.name = 'time';
+            hidden_input4.value = time;
             const hidden_input5 = document.createElement('input');
             hidden_input5.type = 'hidden';
-            hidden_input5.name = 'seat';
-            hidden_input5.value = JSON.stringify(selectedSeats);
+            hidden_input5.name = 'oldseat';
+            hidden_input5.value = oldseat;
+            const hidden_input6 = document.createElement('input');
+            hidden_input6.type = 'hidden';
+            hidden_input6.name = 'seat';
+            hidden_input6.value = JSON.stringify(selectedSeats);
 
             hidden_form.appendChild(hidden_input0);
             hidden_form.appendChild(hidden_input1);
@@ -533,6 +593,8 @@ function editreserved(email,lab,date,time,oldseat){
             hidden_form.appendChild(hidden_input3);
             hidden_form.appendChild(hidden_input4);
             hidden_form.appendChild(hidden_input5);
+            hidden_form.appendChild(hidden_input6);
+
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();

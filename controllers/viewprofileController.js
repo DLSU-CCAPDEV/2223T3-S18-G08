@@ -27,8 +27,7 @@ const viewprofileController = {
 
         var result = await db.findOne(User, user, projection);
         if (result != null){
-            result.active = "profile";
-            res.render("viewprofile", {email:email,data:result});
+            res.render("viewprofile", {active:'profile',email:email,data:result});
         }else{
             res.render('error',{error:'This user was not found.'});
         }

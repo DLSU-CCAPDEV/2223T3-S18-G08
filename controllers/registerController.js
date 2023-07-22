@@ -53,7 +53,7 @@ const registerController = {
             if(password == confirmpassword){
                 var response = await db.insertOne(User,user);
                 if(response){
-                    res.render('index');
+                    res.render('index',{active:'index'});
                 }else{
                     res.render('error',{error:'Database error.'});
                 }

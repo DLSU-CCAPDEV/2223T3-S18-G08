@@ -49,11 +49,11 @@
             </table>
             
             <br>
-            <input type="submit" onclick = "editreserved('{{email}}','{{lab}}','{{date}}','{{time}}','{{seat}}')" value = "Reserve">
+            <input type="submit" onclick = "editreserved('{{email}}','{{editing_email}}','{{lab}}','{{date}}','{{time}}','{{seat}}')" value = "Reserve">
         </div>
 
         <div class = "cancel-reservation-changes">
-            <a class = "button1" href = "profile"> Cancel Changes </a>
+            <a class = "button1" onclick="gotoprofile('{{email}}')"> Cancel Changes </a>
         </div>
     </body>
 </html>

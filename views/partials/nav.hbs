@@ -29,15 +29,15 @@
             {{/ifCond}}
             {{#ifCond position 'technician'}}
                 {{#ifCond active 'labtechnicianreserve'}}
-                    <a class = "active" onclick="gototreserveslot('{{email}}')" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+                    <a class = "active" onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT (LAB TECH) </a>
                 {{else}}
-                    <a onclick="gototreserveslot('{{email}}')" href = "labtechnicianreserve"> RESERVE FOR STUDENT (LAB TECH) </a>
+                    <a onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT (LAB TECH) </a>
                 {{/ifCond}}
 
-                {{#ifCond active 'labtechnicianmodify'}}
-                    <a class = "active" onclick="gototmodifyslot('{{email}}')" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
+                {{#ifCond active 'studentreserve'}}
+                    <a class = "active" onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS (LAB TECH) </a>
                 {{else}}
-                    <a onclick="gototmodifyslot('{{email}}')" href = "labtechnicianmodify"> MODIFY RESERVATIONS (LAB TECH) </a>
+                    <a onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS (LAB TECH) </a>
                 {{/ifCond}}
             {{/ifCond}}
 
