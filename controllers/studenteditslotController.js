@@ -22,16 +22,21 @@ const studenteditslotController = {
         var date = Number(req.body.date);
         var time = Number(req.body.time);
         var seat = Number(req.body.seat);
-        var data = await db.findMany(User,{},'email username myReservations');
         var user = {
-            email: email
+            email: editing_email
         };
+        var data = await db.findMany(User,user,'email username myReservations');
+        user.email = email
+        console.log(data);
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        
-        data = JSON.stringify(data);
-        res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
-        
+        if(data !=null){
+            data = JSON.stringify(data);
+            res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
+        }
+        else{
+            res.render('error',{error:'DB error'});
+        }
     },
 
     /*

@@ -108,10 +108,6 @@ function displaySlotsR(users){
     document.getElementById("slots").style.display = "block";
 }
 
-function remove(row){
-    document.getElementById(row).remove();
-}
-
 function displaySlotsE(users,l,d,t,s){
     selectedSeats = new Array();
     selectedSeats.push(s);

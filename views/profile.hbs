@@ -35,7 +35,7 @@
                     <td>
                         {{add1 @index}}. Lab {{add1 lab}}, 6/{{add20 date}}/2023, {{gettime time}}: Seat: {{add1 seat}} Created on: 6/15/2023, 9:53PM"
                     </td>
-                    <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{lab}}','{{date}}','{{time}}','{{seat}}')"> Edit </a></td>
+                    <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{../email}}','{{lab}}','{{date}}','{{time}}','{{seat}}')"> Edit </a></td>
                 </tr>
                 {{/each}}
             </table>
