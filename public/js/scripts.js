@@ -91,7 +91,7 @@ function displaySlotsR(users){
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
                     if(this.style.backgroundColor == "orange"){
-                        selectedSeats.splice(selectedSears.indexof(this.name),1);
+                        selectedSeats.splice(selectedSeats.indexOf(this.name),1);
                         this.style.backgroundColor = "transparent";}
                     else{
                         selectedSeats.push(this.name);
@@ -471,7 +471,7 @@ function reservetech(email){
             const hidden_input1 = document.createElement('input');
             hidden_input1.type = 'hidden';
             hidden_input1.name = 'student_email';
-            hidden_input1.value = document.getElementById("student_email");
+            hidden_input1.value = document.getElementById("student_email").value;
             const hidden_input2 = document.createElement('input');
             hidden_input2.type = 'hidden';
             hidden_input2.name = 'lab';

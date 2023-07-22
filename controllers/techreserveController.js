@@ -24,7 +24,7 @@ const techreserveController = {
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        res.render('labtechnicianreserve',{active:'studentreserve',email:email,position:position,data:data});
+        res.render('labtechnicianreserve',{active:'labtechnicianreserve',email:email,position:position,data:data});
     },
 
     /*
@@ -52,9 +52,10 @@ const techreserveController = {
         };
         var reservations = new Array();
         
-        
+        console.log("1");
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
+        console.log("1 done");
         if(old != null){
             if(old.myReservations != null){
                 old.myReservations.forEach(e => {
@@ -77,9 +78,7 @@ const techreserveController = {
                 myReservations:reservations
             };
             await db.updateOne(User,user,change);
-            var user = {
-                email:email
-            };
+            user.email=email;
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";

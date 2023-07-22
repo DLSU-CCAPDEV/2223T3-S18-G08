@@ -21,7 +21,7 @@ const modifytechController = {
         };
         var position = await db.findOne(User,user,'position');
         position = position.position;
-        res.render("labtechnicianmodify", {active:'labtechnicianmodify',email:email,display:'false',position:position});
+        res.render("labtechnicianmodify", {active:'studentreserve',email:email,display:'false',position:position});
     },
     postModifyTech: async function (req, res) {
         var email = req.body.email;
