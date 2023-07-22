@@ -22,22 +22,22 @@
                 {{/ifCond}}
 
                 {{#ifCond active 'studentreserve'}}
-                    <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
+                    <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT </a>
                 {{else}}
-                    <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT (STUDENT) </a>
+                    <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT </a>
                 {{/ifCond}}
             {{/ifCond}}
             {{#ifCond position 'technician'}}
                 {{#ifCond active 'labtechnicianreserve'}}
-                    <a class = "active" onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT (LAB TECH) </a>
+                    <a class = "active" onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT </a>
                 {{else}}
-                    <a onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT (LAB TECH) </a>
+                    <a onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT </a>
                 {{/ifCond}}
 
                 {{#ifCond active 'studentreserve'}}
-                    <a class = "active" onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS (LAB TECH) </a>
+                    <a class = "active" onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS </a>
                 {{else}}
-                    <a onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS (LAB TECH) </a>
+                    <a onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS </a>
                 {{/ifCond}}
             {{/ifCond}}
 
