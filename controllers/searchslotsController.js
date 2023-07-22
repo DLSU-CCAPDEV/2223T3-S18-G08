@@ -25,7 +25,7 @@ const searchslotsController = {
         position = position.position;
         
         data = JSON.stringify(data);
-        res.render('searchslots',{email:email,position:position,data:data,active:'studentreserve'});
+        res.render('searchslots',{email:email,position:position,data:data,active:'searchslots'});
         
     },
 
