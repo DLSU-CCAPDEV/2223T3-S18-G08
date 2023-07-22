@@ -283,6 +283,27 @@ function editprofile(email,username,description,position){
     hidden_form.submit();
 }
 
+function deleteprofile(email){
+    const hidden_form = document.createElement('form');
+
+    // Set method to post by default
+    hidden_form.method = 'post';
+        
+    // Set path
+    hidden_form.action = '/deleteprofile';
+        
+                
+            const hidden_input0 = document.createElement('input');
+            hidden_input0.type = 'hidden';
+            hidden_input0.name = 'email';
+            hidden_input0.value = email;
+
+            hidden_form.appendChild(hidden_input0);
+
+    document.body.appendChild(hidden_form);
+    hidden_form.submit();
+}
+
 function gotoreserveslot(email){
     const hidden_form = document.createElement('form');
 

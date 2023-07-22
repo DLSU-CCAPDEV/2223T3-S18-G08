@@ -10,6 +10,7 @@ const searchuserController = require('../controllers/searchuserController.js');
 const studenteditslotController = require('../controllers/studenteditslotController.js');
 const viewprofileController = require('../controllers/viewprofileController.js');
 const editprofileController = require('../controllers/editprofileController.js');
+const deleteprofileController = require('../controllers/deleteprofileController.js');
 const modifytechController = require('../controllers/modifytechController.js');
 const techreserveController = require('../controllers/techreserveController.js');
 
@@ -26,6 +27,8 @@ app.post('/viewprofile',viewprofileController.postViewProfile);
 
 app.post('/editprofile',editprofileController.postgetEditProfile);
 app.post('/saveprofile',editprofileController.postEditProfile);
+
+app.post('/deleteprofile',deleteprofileController.postDeleteProfile);
 
 app.post('/login', loginController.postLogin);
 
