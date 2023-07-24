@@ -4,8 +4,9 @@ const db = require('./models/db.js');
 // import module `User` from `../models/UserModel.js`
 const User = require('./models/UserModel.js'); 
 db.connect();
-
-var UserSchema = {
+add();
+async function add(){
+  var UserSchema = {
     email: 'ethan_lester_l_chan@dlsu.edu.ph',
     username: 'Ethan',
     password: 'ELC1123',
@@ -307,4 +308,5 @@ if(response){
     console.log("added 1 doc");
 }else{
     console.log("failed");
+}
 }
