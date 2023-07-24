@@ -22,14 +22,22 @@ const studenteditslotController = {
         var user = {
             email: editing_email
         };
-        var data = await db.findMany(User,user,'email username myReservations');
+        var data = await db.findMany(User,{},'email username myReservations');
+        var datas = await db.findOne(User,user,'email username myReservations');
         user.email = email
-        console.log(data);
         var position = await db.findOne(User,user,'position');
         position = position.position;
+        
         if(data !=null){
+            var seats = new Array();
+            datas.myReservations.forEach(e => {
+                if(e.id==id){
+                    seats.push(e);
+                }
+            });
             data = JSON.stringify(data);
-            res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,id:id});
+            seats = JSON.stringify(seats);
+            res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,id:id,seats:seats});
         }
         else{
             res.render('error',{error:'DB error'});
@@ -57,28 +65,42 @@ const studenteditslotController = {
         var user = {
             email:editing_email
         };
+        var lab,date,time;
         var reservations = new Array();
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
         if(old != null){
-            old.myReservations.forEach(e => {
-                if(e.lab==lab&&e.date==date&&e.time==time&&e.seat==oldseat){
-
-                }else{
-                    reservations.push(e);
-                }
-            });
+            if(old.myReservations != null){
+                old.myReservations.forEach(e => {
+                    if(e.id != id){
+                        reservations.push(e);
+                    }
+                    else{
+                        lab = e.lab;
+                        date = e.date;
+                        time = e.time;
+                    }
+                    
+                });
+            }
+            var d = new Date();
             
             seat.forEach(e => {
                 var reservation = {
                     lab:lab,
                     date:date,
                     time:time,
-                    seat:e
+                    seat:e,
+                    id:id,
+                    month:d.getMonth(),
+                    day:d.getDate(),
+                    year:d.getFullYear(),
+                    created:d.toString()
+                    
                 };
                 if(!reservations.some(a=>a.seat===e)){
-                        reservations.push(reservation);
-                    }
+                    reservations.push(reservation);
+                }
             });
             var change = {
                 myReservations:reservations

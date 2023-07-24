@@ -55,11 +55,13 @@ const studentreserveController = {
         var old = await db.findOne(User, user, projection);
         var id = 1;
         if(old != null){
-            if(old.myReservations != null){
+            if(old.myReservations.length>0){
+                console.log(old.myReservations);
+                id = old.myReservations[old.myReservations.length-1].id;
                 old.myReservations.forEach(e => {
                     reservations.push(e);
                 });
-                id = old.myReservations[old.myReservations.length-1].id;
+                
             }
             var d = new Date();
             

@@ -115,11 +115,11 @@ function displaySlotsE(users,data){
         selectedSeats.push(e.seat);
     });
     updateSlots(users);
-    var displayslots = slots[l][d][t];
+    var displayslots = slots[Number(seats[0].lab)][Number(seats[0].date)][Number(seats[0].time)];
     table = document.getElementById("slots");
-    document.getElementById("timeslot").innerHTML = "lab: " + (Number(l)+1) + " day: June, " + (Number(d)+20) + " time: " + getTime(t);
+    document.getElementById("timeslot").innerHTML = "lab: " + (Number(seats[0].lab)+1) + " day: June, " + (Number(seats[0].date)+20) + " time: " + getTime(seats[0].time);
     for(i = 0; i < 20; i++){
-        if(displayslots[i] == 0 || i == Number(s)){
+        if(displayslots[i] == 0 ||selectedSeats.includes(i)){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
             table.rows[Math.floor(i/5)].cells[i%5].name = i;
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
