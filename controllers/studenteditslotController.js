@@ -18,10 +18,7 @@ const studenteditslotController = {
     postgetSlots: async function (req, res) {
         var email = req.body.email;
         var editing_email = req.body.editing_email;
-        var lab =  Number(req.body.lab);
-        var date = Number(req.body.date);
-        var time = Number(req.body.time);
-        var seat = Number(req.body.seat);
+        var id =  Number(req.body.id);
         var user = {
             email: editing_email
         };
@@ -32,7 +29,7 @@ const studenteditslotController = {
         position = position.position;
         if(data !=null){
             data = JSON.stringify(data);
-            res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,lab:lab,date:date,time:time,seat:seat});
+            res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,id:id});
         }
         else{
             res.render('error',{error:'DB error'});
@@ -55,10 +52,7 @@ const studenteditslotController = {
         var email = req.body.email;
 
         var editing_email = req.body.editing_email;
-        var lab =  Number(req.body.lab);
-        var date = Number(req.body.date);
-        var time = Number(req.body.time);
-        var oldseat = Number(req.body.oldseat);
+        var id =  Number(req.body.id);
         var seat = JSON.parse(req.body.seat);
         var user = {
             email:editing_email

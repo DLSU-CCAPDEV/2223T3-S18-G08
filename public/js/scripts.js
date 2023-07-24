@@ -108,9 +108,12 @@ function displaySlotsR(users){
     document.getElementById("slots").style.display = "block";
 }
 
-function displaySlotsE(users,l,d,t,s){
+function displaySlotsE(users,data){
     selectedSeats = new Array();
-    selectedSeats.push(s);
+    seats = JSON.parse(data);
+    seats.forEach(e => {
+        selectedSeats.push(e.seat);
+    });
     updateSlots(users);
     var displayslots = slots[l][d][t];
     table = document.getElementById("slots");
@@ -129,7 +132,7 @@ function displaySlotsE(users,l,d,t,s){
                         this.style.backgroundColor = "orange";   
                     }
                 };
-            if(i == Number(s)){
+            if(selectedSeats.includes(i)){
                 table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "orange";
             }
         } else {
@@ -521,7 +524,7 @@ function reservetech(email){
     document.body.appendChild(hidden_form);
     hidden_form.submit();
 }
-function editReserve(email,editing_email,l,d,t,s){
+function editReserve(email,editing_email,id){
     const hidden_form = document.createElement('form');
 
     // Set method to post by default
@@ -539,33 +542,18 @@ function editReserve(email,editing_email,l,d,t,s){
             hidden_input1.value = editing_email;
             const hidden_input2 = document.createElement('input');
             hidden_input2.type = 'hidden';
-            hidden_input2.name = 'lab';
-            hidden_input2.value = l;
-            const hidden_input3 = document.createElement('input');
-            hidden_input3.type = 'hidden';
-            hidden_input3.name = 'date';
-            hidden_input3.value = d;
-            const hidden_input4 = document.createElement('input');
-            hidden_input4.type = 'hidden';
-            hidden_input4.name = 'time';
-            hidden_input4.value = t;
-            const hidden_input5 = document.createElement('input');
-            hidden_input5.type = 'hidden';
-            hidden_input5.name = 'seat';
-            hidden_input5.value = s;
+            hidden_input2.name = 'id';
+            hidden_input2.value = id;
 
             hidden_form.appendChild(hidden_input0);
             hidden_form.appendChild(hidden_input1);
             hidden_form.appendChild(hidden_input2);
-            hidden_form.appendChild(hidden_input3);
-            hidden_form.appendChild(hidden_input4);
-            hidden_form.appendChild(hidden_input5);
 
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();
 }
-function editreserved(email,editing_email,lab,date,time,oldseat){
+function editreserved(email,editing_email,id){
     // Create form
     const hidden_form = document.createElement('form');
 
@@ -585,20 +573,8 @@ function editreserved(email,editing_email,lab,date,time,oldseat){
             hidden_input1.value = editing_email;
             const hidden_input2 = document.createElement('input');
             hidden_input2.type = 'hidden';
-            hidden_input2.name = 'lab';
-            hidden_input2.value = lab;
-            const hidden_input3 = document.createElement('input');
-            hidden_input3.type = 'hidden';
-            hidden_input3.name = 'date';
-            hidden_input3.value = date;
-            const hidden_input4 = document.createElement('input');
-            hidden_input4.type = 'hidden';
-            hidden_input4.name = 'time';
-            hidden_input4.value = time;
-            const hidden_input5 = document.createElement('input');
-            hidden_input5.type = 'hidden';
-            hidden_input5.name = 'oldseat';
-            hidden_input5.value = oldseat;
+            hidden_input2.name = 'id';
+            hidden_input2.value = id;
             const hidden_input6 = document.createElement('input');
             hidden_input6.type = 'hidden';
             hidden_input6.name = 'seat';
@@ -607,9 +583,6 @@ function editreserved(email,editing_email,lab,date,time,oldseat){
             hidden_form.appendChild(hidden_input0);
             hidden_form.appendChild(hidden_input1);
             hidden_form.appendChild(hidden_input2);
-            hidden_form.appendChild(hidden_input3);
-            hidden_form.appendChild(hidden_input4);
-            hidden_form.appendChild(hidden_input5);
             hidden_form.appendChild(hidden_input6);
 
 
