@@ -9,8 +9,7 @@ Command to clone the repository: git clone https://github.com/arvention/ccapdev-
 
 2. Open Command Prompt inside the folder where the files are placed.
 3. Run "npm install" to initialize and install all necessary modules used in the project.
-4. Run "node add_data.js" to add data to the database. This will allow the user to login using certain accounts.
-
+4. Run "node add_data.js" to add data to the database. This will allow the user to login using certain accounts. Then, if needed, press "Ctrl + C".
 
 Format of User Logins Below:
 (email)
