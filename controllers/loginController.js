@@ -43,6 +43,15 @@ const loginController = {
         if (response != null){
             if(response.password == password){
                 response.active = 'profile';
+                var currentid = 0;
+                var temp = new Array();
+                response.myReservations.forEach(e => {
+                    if(e.id>currentid){
+                        currentid++;
+                        temp.push(e);
+                    }
+                });
+                response.myReservations = temp;
                 res.render('profile',response);
             }else{
                 res.render('error',{error:'Wrong password.'});

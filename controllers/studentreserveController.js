@@ -90,7 +90,7 @@ const studentreserveController = {
                 var currentid = 0;
                 var temp = new Array();
                 result.myReservations.forEach(e => {
-                    if(e.temp>currentid){
+                    if(e.id>currentid){
                         currentid++;
                         temp.push(e);
                     }

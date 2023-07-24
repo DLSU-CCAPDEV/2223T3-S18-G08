@@ -52,6 +52,15 @@ const editprofileController = {
         var response = await db.findOne(User,user,'email username description position myReservations');
         if (response != null){
             response.active = 'profile';
+            var currentid = 0;
+                var temp = new Array();
+                response.myReservations.forEach(e => {
+                    if(e.id>currentid){
+                        currentid++;
+                        temp.push(e);
+                    }
+                });
+                response.myReservations = temp;
             res.render('profile',response);
         }else{
             res.render('error',{error:'This user was not found.'});

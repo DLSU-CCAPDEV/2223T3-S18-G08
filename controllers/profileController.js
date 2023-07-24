@@ -26,6 +26,7 @@ const profileController = {
         var projection = 'email username description position myReservations';
 
         var result = await db.findOne(User, user, projection);
+        console.log(result);
         if (result != null){
             result.active = "profile";
             var currentid = 0;
