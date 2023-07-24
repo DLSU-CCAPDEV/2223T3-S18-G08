@@ -1,6 +1,16 @@
 # 2223T3-S18-G08
-To access the features in this Lab Reservation System, the user must login or register first.
-However, since the register feature does not store information yet, user login details have been hard coded.
+
+The group has created a Lab Reservation System for the Machine Project. Here are some instructions
+to setup the system.
+
+1. Clone the repository either using the command below or by downloading the contents of the repository.
+
+Command to clone the repository: git clone https://github.com/arvention/ccapdev-database
+
+2. Open Command Prompt inside the folder where the files are placed.
+3. Run "npm install" to initialize and install all necessary modules used in the project.
+4. Run "node add_data.js" to add data to the database. This will allow the user to login using certain accounts.
+
 
 Format of User Logins Below:
 (email)
@@ -21,3 +31,6 @@ lolafobic
 
 ethan_lester_l_chan@dlsu.edu.ph
 ELC1123
+
+5. Run "node index.js". This will start the local server. Use "localhost:3000" to get access to the server
+through a browser. 
