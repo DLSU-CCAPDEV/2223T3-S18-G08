@@ -55,7 +55,6 @@ const techreserveController = {
         console.log("1");
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
-        console.log("1 done");
         if(old != null){
             if(old.myReservations != null){
                 old.myReservations.forEach(e => {

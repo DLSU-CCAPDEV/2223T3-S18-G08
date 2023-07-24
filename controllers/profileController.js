@@ -22,11 +22,21 @@ const profileController = {
         var user = {
             email:email
         };
+        
         var projection = 'email username description position myReservations';
 
         var result = await db.findOne(User, user, projection);
         if (result != null){
             result.active = "profile";
+            var currentid = 0;
+            var temp = new Array();
+            result.myReservations.forEach(e => {
+                if(e.id>currentid){
+                    currentid++;
+                    temp.push(e);
+                }
+            });
+            result.myReservations = temp;
             res.render("profile", result);
         }else{
             res.render('error',{error:'This user was not found.'});

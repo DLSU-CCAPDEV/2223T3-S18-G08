@@ -53,18 +53,28 @@ const studentreserveController = {
         
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
+        var id = 1;
         if(old != null){
             if(old.myReservations != null){
                 old.myReservations.forEach(e => {
                     reservations.push(e);
                 });
+                id = old.myReservations[old.myReservations.length-1].id;
             }
+            var d = new Date();
+            
             seat.forEach(e => {
                 var reservation = {
                     lab:lab,
                     date:date,
                     time:time,
-                    seat:e
+                    seat:e,
+                    id:id,
+                    month:d.getMonth(),
+                    day:d.getDate(),
+                    year:d.getFullYear(),
+                    created:d.toString()
+                    
                 };
                 if(!reservations.some(a=>a.seat===e)){
                     reservations.push(reservation);
@@ -77,6 +87,15 @@ const studentreserveController = {
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";
+                var currentid = 0;
+                var temp = new Array();
+                result.myReservations.forEach(e => {
+                    if(e.temp>currentid){
+                        currentid++;
+                        temp.push(e);
+                    }
+                });
+                result.myReservations = temp;
                 res.render("profile", result);
             }else{
                 res.render('error',{error:'This user was not found.'});
