@@ -27,6 +27,15 @@ const viewprofileController = {
 
         var result = await db.findOne(User, user, projection);
         if (result != null){
+            var currentid = 0;
+                var temp = new Array();
+                result.myReservations.forEach(e => {
+                    if(e.id>currentid){
+                        currentid++;
+                        temp.push(e);
+                    }
+                });
+                result.myReservations = temp;
             res.render("viewprofile", {active:'profile',email:email,data:result});
         }else{
             res.render('error',{error:'This user was not found.'});
