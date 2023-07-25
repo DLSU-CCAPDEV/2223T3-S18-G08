@@ -5,6 +5,15 @@ const express = require('express');
 // import module `hbs`
 const hbs = require('hbs');
 
+// import module `express-session`
+const session = require('express-session');
+
+// import module `mongoose`
+const mongoose = require('mongoose');
+
+// import module `connect-mongo`
+const MongoStore = require('connect-mongo')(session);
+
 // import module `routes` from `./routes/routes.js`
 const routes = require('./routes/routes.js');
 
@@ -81,14 +90,23 @@ app.use(express.static('public'));
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
 
+// connects to the database
+db.connect();
+
+// use `express-session`` middleware and set its options
+// use `MongoStore` as server-side session storage
+app.use(session({
+    'secret': 'ccapdev-session',
+    'resave': false,
+    'saveUninitialized': false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
+
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
 app.use(function (req, res) {
     res.render('error',{error:'Root does not exist.'});
 });
-
-// connects to the database
-db.connect();
 
 // binds the server to a specific port
 app.listen(port, function () {
