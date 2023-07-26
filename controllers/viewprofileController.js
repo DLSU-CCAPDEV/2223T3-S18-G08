@@ -38,7 +38,7 @@ const viewprofileController = {
                     });
                 }
                 result.myReservations = temp;
-            res.render("viewprofile", {active:'profile',email:email,data:result});
+            res.render("viewprofile", {active:'profile',email:email,data:result,position:result.position});
         }else{
             res.render('error',{error:'This user was not found.'});
         }

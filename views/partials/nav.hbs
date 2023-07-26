@@ -16,37 +16,37 @@
             
             {{#ifCond position 'student'}}
                 {{#ifCond active 'searchslots'}}
-                <a class = "active" onclick="gotosearchslot('{{email}}')"> SEARCH SLOTS </a>
+                <a class = "active" href = "searchslots"> SEARCH SLOTS </a>
                 {{else}}
-                    <a onclick="gotosearchslot('{{email}}')"> SEARCH SLOTS </a>
+                    <a href = "searchslots"> SEARCH SLOTS </a>
                 {{/ifCond}}
 
                 {{#ifCond active 'studentreserve'}}
-                    <a class = "active" onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT </a>
+                    <a class = "active" href =  "studentreserve"> RESERVE SLOT </a>
                 {{else}}
-                    <a onclick="gotoreserveslot('{{email}}')"> RESERVE SLOT </a>
+                    <a href = "studentreserve"> RESERVE SLOT </a>
                 {{/ifCond}}
             {{/ifCond}}
             {{#ifCond position 'technician'}}
                 {{#ifCond active 'labtechnicianreserve'}}
-                    <a class = "active" onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT </a>
+                    <a class = "active" herf="techreserve"> RESERVE FOR STUDENT </a>
                 {{else}}
-                    <a onclick="gotoTreserveslot('{{email}}')"> RESERVE FOR STUDENT </a>
+                    <a herf="techreserve"> RESERVE FOR STUDENT </a>
                 {{/ifCond}}
 
                 {{#ifCond active 'studentreserve'}}
-                    <a class = "active" onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS </a>
+                    <a class = "active" href="techmodify"> MODIFY RESERVATIONS </a>
                 {{else}}
-                    <a onclick="gotoTmodifyslot('{{email}}')"> MODIFY RESERVATIONS </a>
+                    <a href="techmodify"> MODIFY RESERVATIONS </a>
                 {{/ifCond}}
             {{/ifCond}}
 
             
             
             {{#ifCond active 'searchusers'}}
-                 <a class = "active" onclick="gotosearchuser('{{email}}')"> SEARCH USER </a>
+                 <a class = "active" href="searchuser"> SEARCH USER </a>
             {{else}}
-                 <a onclick="gotosearchuser('{{email}}')"> SEARCH USER </a>
+                 <a href="searchuser"> SEARCH USER </a>
             {{/ifCond}}
             <a id = "right" href = "index"> LOGOUT</a>
         </div>  

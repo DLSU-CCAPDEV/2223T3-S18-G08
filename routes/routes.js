@@ -35,22 +35,21 @@ app.post('/login', loginController.postLogin);
 app.get('/register', registerController.getRegister);
 app.post('/register', registerController.postRegister);
 
-app.post('/searchslots',searchslotsController.postgetSlots);
+app.get('/searchslots',searchslotsController.getSlots);
 
-app.post('/studentreserve',studentreserveController.postgetSlots);
+app.get('/studentreserve',studentreserveController.getSlots);
 app.post('/studentreserved',studentreserveController.postSlots);
 
 app.post('/studenteditslot',studenteditslotController.postgetSlots);
 app.post('/studenteditedslot',studenteditslotController.postSlots);
 
-app.post('/searchuser',searchuserController.postgetSearch);
+app.get('/searchuser',searchuserController.getSearch);
 app.post('/searcheduser',searchuserController.postSearch);
 
-app.post('/techmodify',modifytechController.postgetModifyTech);
+app.get('/techmodify',modifytechController.getModifyTech);
 app.post('/techmodifying',modifytechController.postModifyTech);
 
-
-app.post('/techreserve',techreserveController.postgetSlots);
+app.get('/techreserve',techreserveController.getSlots);
 app.post('/techreserved',techreserveController.postSlots);
 
 module.exports = app;

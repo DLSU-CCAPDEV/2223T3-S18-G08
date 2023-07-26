@@ -15,8 +15,8 @@ const searchuserController = {
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
     */
-    postgetSearch: async function (req, res) {
-        var email = req.body.email;
+    getSearch: async function (req, res) {
+        var email = req.session.email;
         var user = {
             email: email
         };

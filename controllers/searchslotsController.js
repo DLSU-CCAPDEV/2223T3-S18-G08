@@ -15,8 +15,8 @@ const searchslotsController = {
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
     */
-    postgetSlots: async function (req, res) {
-        var email = req.body.email;
+    getSlots: async function (req, res) {
+        var email = req.session.email;
         var data = await db.findMany(User,{},'email username myReservations');
         var user = {
             email: email

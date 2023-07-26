@@ -14,8 +14,8 @@ const modifytechController = {
     /*
         executed when the client sends an HTTP GET request `/signup`
         as defined in `../routes/routes.js`
-    */postgetModifyTech: async function (req, res) {
-        var email = req.body.email;
+    */getModifyTech: async function (req, res) {
+        var email = req.session.email;
         var user = {
             email: email
         };
