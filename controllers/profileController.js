@@ -15,9 +15,9 @@ const profileController = {
         executed when the client sends an HTTP GET request `/profile/:idNum`
         as defined in `../routes/routes.js`
     */
-    postProfile: async function (req, res) {
+    getProfile: async function (req, res) {
 
-        var email = req.body.email;
+        var email = req.session.email;
 
         var user = {
             email:email

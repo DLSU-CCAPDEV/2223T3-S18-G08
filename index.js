@@ -87,9 +87,6 @@ app.use(express.urlencoded({extended: true}));
 // such as css, js, and image files
 app.use(express.static('public'));
 
-// define the paths contained in `./routes/routes.js`
-app.use('/', routes);
-
 // connects to the database
 db.connect();
 
@@ -101,6 +98,9 @@ app.use(session({
     'saveUninitialized': false,
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
+
+// define the paths contained in `./routes/routes.js`
+app.use('/', routes);
 
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware

@@ -21,7 +21,7 @@ app.get('/', controller.getIndex);
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
 
-app.post('/profile', profileController.postProfile);
+app.get('/profile', profileController.getProfile);
 
 app.post('/viewprofile',viewprofileController.postViewProfile);
 

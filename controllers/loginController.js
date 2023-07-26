@@ -34,7 +34,7 @@ const loginController = {
         */
         var email = req.body.email;
         var password = req.body.password;
-        
+        req.session.email = email;
 
         var user = {
             email: email
@@ -45,12 +45,14 @@ const loginController = {
                 response.active = 'profile';
                 var currentid = 0;
                 var temp = new Array();
-                response.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid++;
-                        temp.push(e);
-                    }
-                });
+                if(response.myReservations != null){
+                    response.myReservations.forEach(e => {
+                        if(e.id>currentid){
+                            currentid++;
+                            temp.push(e);
+                        }
+                    });
+                }
                 response.myReservations = temp;
                 res.render('profile',response);
             }else{
