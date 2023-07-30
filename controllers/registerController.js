@@ -1,4 +1,6 @@
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
 
@@ -37,26 +39,29 @@ const registerController = {
         var username = req.body.username;
         var password = req.body.password;
         var confirmpassword = req.body.confirmpassword;
-        var user = {
-            email:email,
-            username: username,
-            password: password,
-            description: 'This is your description',
-            position: position,
-            myReservations:null
-        };
         var usercheck = {
             email:email
         }
         var check = await db.findOne(User,usercheck,'email');
         if(await check == null){
             if(password == confirmpassword){
-                var response = await db.insertOne(User,user);
+                bcrypt.hash(password, saltRounds,async function(err, hash) {
+                    var user = {
+                        email:email,
+                        username: username,
+                        password: hash,
+                        description: 'This is your description',
+                        position: position,
+                        myReservations:null
+                    };
+                    var response = await db.insertOne(User,user);
                 if(response){
                     res.render('index',{active:'index'});
                 }else{
                     res.render('error',{error:'Database error.'});
                 }
+                });
+                
             }else{
                 res.render('error',{error:'Password and confirm password do not match.'});
             }

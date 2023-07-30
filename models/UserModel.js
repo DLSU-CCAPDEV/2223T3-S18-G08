@@ -23,18 +23,6 @@ var reservations = new mongoose.Schema({
         type: Number,
         required: true
     },
-    month:{
-        type: Number,
-        required: true
-    },
-    day:{
-        type: Number,
-        required: true
-    },
-    year:{
-        type: Number,
-        required: true
-    },
     created:{
         type: String,
         required: true

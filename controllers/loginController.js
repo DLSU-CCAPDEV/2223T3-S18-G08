@@ -1,4 +1,5 @@
 
+const bcrypt = require('bcrypt');
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
 
@@ -41,8 +42,9 @@ const loginController = {
         };
         var response = await db.findOne(User,user,'email username description position myReservations password');
         if (response != null){
-            if(response.password == password){
-                response.active = 'profile';
+            bcrypt.compare(password, response.password, function(err, equal) {
+                if(equal) {
+                    response.active = 'profile';
                 var currentid = 0;
                 var temp = new Array();
                 if(response.myReservations != null){
@@ -55,17 +57,14 @@ const loginController = {
                 }
                 response.myReservations = temp;
                 res.render('profile',response);
-            }else{
-                res.render('error',{error:'Wrong password.'});
-            }
+                }
+                else {
+                    res.render('error',{error:'Wrong password.'});
+                }
+            });
         }else{
             res.render('error',{error:'This user was not found.'});
         }
     }
 }
-
-/*
-    exports the object `signupController` (defined above)
-    when another script exports from this file
-*/
 module.exports = loginController;
