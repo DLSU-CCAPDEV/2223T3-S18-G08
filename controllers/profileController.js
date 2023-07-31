@@ -34,12 +34,11 @@ const profileController = {
             if(result.myReservations!=null){
                 result.myReservations.forEach(e => {
                     if(e.id>currentid){
-                        currentid++;
+                        currentid = e.id;
                         temp.push(e);
                     }
                 });
             }
-            
             result.myReservations = temp;
             res.render("profile", result);
         }else{

@@ -32,7 +32,7 @@ const viewprofileController = {
                 if(result.myReservations != null){
                     result.myReservations.forEach(e => {
                         if(e.id>currentid){
-                            currentid++;
+                            currentid = e.id;
                             temp.push(e);
                         }
                     });

@@ -52,11 +52,24 @@ function updateSlots(users){
     data.forEach(e => {
         if(e.myReservations!=null){
             e.myReservations.forEach(a =>{
-                slots[a.lab][a.date][a.time][a.seat] = e.username;
-                emails[a.lab][a.date][a.time][a.seat] = e.email;
+                var diff = checkDateDiff(a.created);
+                console.log(diff);
+                if(a.date>=diff){
+                    slots[a.lab][a.date-diff][a.time][a.seat] = a.anon ? "Anonymous":e.username;
+                    emails[a.lab][a.date-diff][a.time][a.seat] = e.email;
+                }
             });
         }
     });
+}
+
+function checkDateDiff(cdate){
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+    var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    var check = Date.UTC(new Date(cdate).getFullYear(), new Date(cdate).getMonth(), new Date(cdate).getDate());
+    console.log(now/ _MS_PER_DAY);
+    console.log(check/ _MS_PER_DAY);
+    return Math.floor((now - check) / _MS_PER_DAY);
 }
 
 function displayFreeSlots(users,email){
@@ -337,12 +350,17 @@ function studentreserve(email){
             hidden_input4.type = 'hidden';
             hidden_input4.name = 'seat';
             hidden_input4.value = JSON.stringify(selectedSeats);
-
+            const hidden_input5 = document.createElement('input');
+            hidden_input5.type = 'hidden';
+            hidden_input5.name = 'anon';
+            hidden_input5.value = document.getElementById("reserveanonymously").checked;
+            
             hidden_form.appendChild(hidden_input0);
             hidden_form.appendChild(hidden_input1);
             hidden_form.appendChild(hidden_input2);
             hidden_form.appendChild(hidden_input3);
             hidden_form.appendChild(hidden_input4);
+            hidden_form.appendChild(hidden_input5);
 
     document.body.appendChild(hidden_form);
     hidden_form.submit();

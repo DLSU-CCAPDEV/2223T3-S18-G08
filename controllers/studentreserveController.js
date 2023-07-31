@@ -45,6 +45,7 @@ const studentreserveController = {
         var date = Number(req.body.date);
         var time = Number(req.body.time);
         var seat = JSON.parse(req.body.seat);
+        var anon = req.body.anon;
         var user = {
             email:email
         };
@@ -55,15 +56,16 @@ const studentreserveController = {
         var old = await db.findOne(User, user, projection);
         var id = 1;
         if(old != null){
-            if(old.myReservations.length>0){
-                console.log(old.myReservations);
-                id = old.myReservations[old.myReservations.length-1].id;
-                old.myReservations.forEach(e => {
-                    reservations.push(e);
-                });
-                
+            if(old.myReservations != null){
+                if(old.myReservations.length > 0){
+                    console.log(old.myReservations);
+                    id = old.myReservations[old.myReservations.length-1].id+1;
+                    old.myReservations.forEach(e => {
+                        reservations.push(e);
+                    });
+                }
             }
-            var d = new Date();
+            var d = new Date;
             
             seat.forEach(e => {
                 var reservation = {
@@ -72,11 +74,8 @@ const studentreserveController = {
                     time:time,
                     seat:e,
                     id:id,
-                    month:d.getMonth(),
-                    day:d.getDate(),
-                    year:d.getFullYear(),
-                    created:d.toString()
-                    
+                    created:d.toString(),
+                    anon:anon
                 };
                 if(!reservations.some(a=>a.seat===e)){
                     reservations.push(reservation);
@@ -93,7 +92,7 @@ const studentreserveController = {
                 var temp = new Array();
                 result.myReservations.forEach(e => {
                     if(e.id>currentid){
-                        currentid++;
+                        currentid = e.id;
                         temp.push(e);
                     }
                 });

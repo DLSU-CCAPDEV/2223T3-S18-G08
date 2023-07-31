@@ -62,7 +62,7 @@ const techreserveController = {
                 });
                 id = old.myReservations[old.myReservations.length-1].id;
             }
-            var d = new Date();
+            var d = new Date;
             
             seat.forEach(e => {
                 var reservation = {
@@ -71,11 +71,8 @@ const techreserveController = {
                     time:time,
                     seat:e,
                     id:id,
-                    month:d.getMonth(),
-                    day:d.getDate(),
-                    year:d.getFullYear(),
-                    created:d.toString()
-                    
+                    created:d.toString(),
+                    anon:anon
                 };
                 if(!reservations.some(a=>a.seat===e)){
                     reservations.push(reservation);
@@ -93,7 +90,7 @@ const techreserveController = {
                 var temp = new Array();
                 result.myReservations.forEach(e => {
                     if(e.id>currentid){
-                        currentid++;
+                        currentid = e.id;
                         temp.push(e);
                     }
                 });

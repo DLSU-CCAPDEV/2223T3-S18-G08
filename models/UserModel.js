@@ -24,8 +24,12 @@ var reservations = new mongoose.Schema({
         required: true
     },
     created:{
-        type: String,
+        type: Date,
         required: true
+    },
+    anon:{
+        type:Boolean,
+        Required:true
     }
   });
 

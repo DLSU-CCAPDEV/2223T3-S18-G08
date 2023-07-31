@@ -65,7 +65,7 @@ const studenteditslotController = {
         var user = {
             email:editing_email
         };
-        var lab,date,time;
+        var lab,date,time,anon;
         var reservations = new Array();
         var projection = 'email username description position myReservations';
         var old = await db.findOne(User, user, projection);
@@ -79,6 +79,7 @@ const studenteditslotController = {
                         lab = e.lab;
                         date = e.date;
                         time = e.time;
+                        anon = e.anon;
                     }
                     
                 });
@@ -92,11 +93,8 @@ const studenteditslotController = {
                     time:time,
                     seat:e,
                     id:id,
-                    month:d.getMonth(),
-                    day:d.getDate(),
-                    year:d.getFullYear(),
-                    created:d.toString()
-                    
+                    created:d.toString(),
+                    anon:anon
                 };
                 if(!reservations.some(a=>a.seat===e)){
                     reservations.push(reservation);
@@ -116,7 +114,7 @@ const studenteditslotController = {
                 var temp = new Array();
                 result.myReservations.forEach(e => {
                     if(e.id>currentid){
-                        currentid++;
+                        currentid = e.id;
                         temp.push(e);
                     }
                 });

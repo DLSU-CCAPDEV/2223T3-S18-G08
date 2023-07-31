@@ -79,6 +79,11 @@ hbs.registerHelper('gettime', function(v) {
             return "3:30AM-4:00AM";
     }
 });
+hbs.registerHelper('getdate', function(v) {
+    var d = new Date();
+    d.setDate(d.getDate() + v);
+    return (d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
+});
 
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));

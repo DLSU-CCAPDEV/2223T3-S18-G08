@@ -33,7 +33,7 @@
                 {{#each myReservations}}
                 <tr>
                     <td>
-                        {{id}}. Lab {{add1 lab}}, 6/{{add20 date}}/2023, {{gettime time}} Created on: {{created}}
+                        {{add1 @index}}. Lab {{add1 lab}}, {{getdate date}}, {{gettime time}} Created on: {{created}}
                     </td>
                     <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{../email}}','{{id}}')"> Edit </a></td>
                 </tr>

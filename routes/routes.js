@@ -13,6 +13,7 @@ const editprofileController = require('../controllers/editprofileController.js')
 const deleteprofileController = require('../controllers/deleteprofileController.js');
 const modifytechController = require('../controllers/modifytechController.js');
 const techreserveController = require('../controllers/techreserveController.js');
+const logoutController = require('../controllers/logoutController.js');
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.get('/', controller.getIndex);
 
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
+
+app.get('/logout',logoutController.getLogout);
 
 app.get('/profile', profileController.getProfile);
 

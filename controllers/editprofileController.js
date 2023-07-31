@@ -54,12 +54,14 @@ const editprofileController = {
             response.active = 'profile';
             var currentid = 0;
                 var temp = new Array();
-                response.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid++;
-                        temp.push(e);
-                    }
-                });
+                if(response.myReservations != null){
+                    response.myReservations.forEach(e => {
+                        if(e.id>currentid){
+                            currentid = e.id;
+                            temp.push(e);
+                        }
+                    });
+                }
                 response.myReservations = temp;
             res.render('profile',response);
         }else{
