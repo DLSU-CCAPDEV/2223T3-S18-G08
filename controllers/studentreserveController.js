@@ -77,7 +77,7 @@ const studentreserveController = {
                     created:d.toString(),
                     anon:anon
                 };
-                if(!reservations.some(a=>a.seat===e)){
+                if(!reservations.some(a=>(a.seat===e && a.lab===lab))){
                     reservations.push(reservation);
                 }
             });
