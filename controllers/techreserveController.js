@@ -88,12 +88,14 @@ const techreserveController = {
                 result.active = "profile";
                 var currentid = 0;
                 var temp = new Array();
-                result.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid = e.id;
-                        temp.push(e);
-                    }
-                });
+                if(result.myReservations != null){
+                    result.myReservations.forEach(e => {
+                        if(e.id>currentid){
+                            currentid = e.id;
+                            temp.push(e);
+                        }
+                    });
+                }
                 result.myReservations = temp;
                 res.render("profile", result);
             }else{
