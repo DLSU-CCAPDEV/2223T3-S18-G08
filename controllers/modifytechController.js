@@ -42,6 +42,16 @@ const modifytechController = {
             result.editing_email = editing_email;
             result.position = position;
             result.display = 'true';
+            var temp = new Array();
+            if(result.myReservations!=null){
+                result.myReservations.forEach(e => {
+                    if(e.id>currentid){
+                        currentid = e.id;
+                        temp.push(e);
+                    }
+                });
+            }
+            result.myReservations = temp;
             res.render("labtechnicianmodify", result);
         }else{
             res.render('error',{error:'This user was not found.'});

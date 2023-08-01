@@ -138,7 +138,7 @@ function displaySlotsE(users,data){
             table.rows[Math.floor(i/5)].cells[i%5].style.backgroundColor = "transparent";
             table.rows[Math.floor(i/5)].cells[i%5].onclick = function(){
                     if(this.style.backgroundColor == "orange"){
-                        selectedSeats.pop(this.name);
+                        selectedSeats.splice(selectedSeats.indexOf(this.name),1);
                         this.style.backgroundColor = "transparent";}
                     else{
                         selectedSeats.push(this.name);
