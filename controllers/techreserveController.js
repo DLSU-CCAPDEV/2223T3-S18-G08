@@ -74,7 +74,7 @@ const techreserveController = {
                     created:d.toString(),
                     anon:anon
                 };
-                if(!reservations.some(a=>a.seat===e)){
+                if(!reservations.some(a=>(a.seat===e && a.lab===lab&&a.date === date && a.time === time))){
                     reservations.push(reservation);
                 }
             });
