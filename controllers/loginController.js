@@ -24,7 +24,7 @@ const loginController = {
         if(req.session.lastLogin){
             var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
             var check = Date.UTC(new Date(req.session.lastLogin).getFullYear(), new Date(req.session.lastLogin).getMonth(), new Date(req.session.lastLogin).getDate());
-            if(Math.floor((now - check) / _MS_PER_DAY)<=3){
+            if(Math.floor((now - check) / _MS_PER_DAY)<=24){
                 var response = await db.findOne(User,user,'email username description position myReservations password');
                 response.active = 'profile';
                 var currentid = 0;
