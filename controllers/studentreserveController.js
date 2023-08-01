@@ -77,7 +77,13 @@ const studentreserveController = {
                     created:d.toString(),
                     anon:anon
                 };
-                if(!reservations.some(a=>(a.seat===e && a.lab===lab&&a.date === date && a.time === time))){
+                const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+                var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+                var check = Date.UTC(new Date(cdate).getFullYear(), new Date(cdate).getMonth(), new Date(cdate).getDate());
+                console.log(now/ _MS_PER_DAY);
+                console.log(check/ _MS_PER_DAY);
+                var rdate = Math.floor((now - check) / _MS_PER_DAY);
+                if(!reservations.some(a=>(a.seat===e && a.lab===lab&&a.date === rdate && a.time === time))){
                     reservations.push(reservation);
                 }
             });
