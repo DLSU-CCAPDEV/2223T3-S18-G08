@@ -168,7 +168,7 @@ function getTime(t){
         case 3:
             return "11:30AM-12:00PM";
         case 4:
-            return "12:00PM-12:30PM";
+            return "12:00PM-12:30AM";
         case 5:
             return "12:30PM-1:00PM";
         case 6:
