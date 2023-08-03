@@ -16,7 +16,7 @@ const studenteditslotController = {
         as defined in `../routes/routes.js`
     */
     postgetSlots: async function (req, res) {
-        var email = req.body.email;
+        var email = req.session.email;
         var editing_email = req.body.editing_email;
         var id =  Number(req.body.id);
         var user = {
@@ -28,13 +28,15 @@ const studenteditslotController = {
         var position = await db.findOne(User,user,'position');
         position = position.position;
         
-        if(data !=null){
+        if(datas !=null){
             var seats = new Array();
-            datas.myReservations.forEach(e => {
-                if(e.id==id){
-                    seats.push(e);
-                }
-            });
+            if (datas.myReservations != null){
+                datas.myReservations.forEach(e => {
+                    if(e.id==id){
+                        seats.push(e);
+                    }
+                });
+            }
             data = JSON.stringify(data);
             seats = JSON.stringify(seats);
             res.render('studenteditslot',{active:'studentreserve',email:email,editing_email:editing_email,position:position,data:data,id:id,seats:seats});
@@ -81,7 +83,6 @@ const studenteditslotController = {
                         time = e.time;
                         anon = e.anon;
                     }
-                    
                 });
             }
             var d = new Date();
@@ -96,9 +97,7 @@ const studenteditslotController = {
                     created:d.toString(),
                     anon:anon
                 };
-                if(!reservations.some(a=>(a.seat===e && a.lab===lab&&a.date === date && a.time === time))){
                     reservations.push(reservation);
-                }
             });
             var change = {
                 myReservations:reservations
@@ -110,14 +109,16 @@ const studenteditslotController = {
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";
-                var currentid = 0;
+                var currentid = new Array();
                 var temp = new Array();
-                result.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid = e.id;
-                        temp.push(e);
-                    }
-                });
+                if(result.myReservations!=null){
+                    result.myReservations.forEach(e => {
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
+                            temp.push(e);
+                        }
+                    });
+                }
                 result.myReservations = temp;
                 res.render("profile", result);
             }else{

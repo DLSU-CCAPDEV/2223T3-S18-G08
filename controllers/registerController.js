@@ -34,7 +34,7 @@ const registerController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.body.email;
+        var email = req.session.email;
         var position = req.body.accounttype;
         var username = req.body.username;
         var password = req.body.password;
@@ -42,31 +42,36 @@ const registerController = {
         var usercheck = {
             email:email
         }
-        var check = await db.findOne(User,usercheck,'email');
-        if(await check == null){
-            if(password == confirmpassword){
-                bcrypt.hash(password, saltRounds,async function(err, hash) {
-                    var user = {
-                        email:email,
-                        username: username,
-                        password: hash,
-                        description: 'This is your description',
-                        position: position,
-                        myReservations:null
-                    };
-                    var response = await db.insertOne(User,user);
-                if(response){
-                    res.render('index',{active:'index'});
+        let index = email.indexOf("@");
+        if ((email.substring(index, email.length-1) == "@dlsu.edu.ph")){
+            var check = await db.findOne(User,usercheck,'email');
+            if(await check == null){
+                if(password == confirmpassword){
+                    bcrypt.hash(password, saltRounds,async function(err, hash) {
+                        var user = {
+                            email:email,
+                            username: username,
+                            password: hash,
+                            description: 'This is your description',
+                            position: position,
+                            myReservations:null
+                        };
+                        var response = await db.insertOne(User,user);
+                    if(response){
+                        res.render('index',{active:'index'});
+                    }else{
+                        res.render('error',{error:'Database error.'});
+                    }
+                    });
+                    
                 }else{
-                    res.render('error',{error:'Database error.'});
+                    res.render('error',{error:'Password and confirm password do not match.'});
                 }
-                });
-                
             }else{
-                res.render('error',{error:'Password and confirm password do not match.'});
+                res.render('error',{error:'This email is already registered.'});
             }
         }else{
-            res.render('error',{error:'This email is already registered.'});
+            res.render('error',{error:'This email is not a dlsu.'});
         }
     }
 }

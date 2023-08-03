@@ -40,7 +40,7 @@ const studentreserveController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.body.email;
+        var email = req.session.email;
         var lab =  Number(req.body.lab);
         var date = Number(req.body.date);
         var time = Number(req.body.time);
@@ -77,15 +77,7 @@ const studentreserveController = {
                     created:d.toString(),
                     anon:anon
                 };
-                const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-                var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-                var check = Date.UTC(new Date(cdate).getFullYear(), new Date(cdate).getMonth(), new Date(cdate).getDate());
-                console.log(now/ _MS_PER_DAY);
-                console.log(check/ _MS_PER_DAY);
-                var rdate = Math.floor((now - check) / _MS_PER_DAY);
-                if(!reservations.some(a=>(a.seat===e && a.lab===lab&&a.date === rdate && a.time === time))){
                     reservations.push(reservation);
-                }
             });
             var change = {
                 myReservations:reservations
@@ -94,14 +86,16 @@ const studentreserveController = {
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";
-                var currentid = 0;
+                var currentid = new Array();
                 var temp = new Array();
-                result.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid = e.id;
-                        temp.push(e);
-                    }
-                });
+                if(result.myReservations!=null){
+                    result.myReservations.forEach(e => {
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
+                            temp.push(e);
+                        }
+                    });
+                }
                 result.myReservations = temp;
                 res.render("profile", result);
             }else{

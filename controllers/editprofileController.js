@@ -16,7 +16,7 @@ const editprofileController = {
         as defined in `../routes/routes.js`
     */
     postgetEditProfile: function (req, res) {
-        var email = req.body.email;
+        var email = req.session.email;
         var position = req.body.accounttype;
         var username = req.body.username;
         var description = req.body.description;
@@ -36,7 +36,7 @@ const editprofileController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.body.email;
+        var email = req.session.email;
         var position = req.body.accounttype;
         var username = req.body.username;
         var description = req.body.description;

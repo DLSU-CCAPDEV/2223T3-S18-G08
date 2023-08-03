@@ -17,28 +17,32 @@ const viewprofileController = {
     */
     postViewProfile: async function (req, res) {
 
-        var email = req.body.email;
+        var email = req.session.email;
         var viewing_email = req.body.viewing_email;
 
         var user = {
-            email:viewing_email
+            email:email
         };
         var projection = 'email username description position myReservations';
-
-        var result = await db.findOne(User, user, projection);
+        var find_user = {
+            email: viewing_email
+        };
+        var position = await db.findOne(User,user,'position');
+        position = position.position;
+        var result = await db.findOne(User, find_user, projection);
         if (result != null){
-            var currentid = 0;
+            var currentid = new Array();
                 var temp = new Array();
-                if(result.myReservations != null){
+                if(result.myReservations!=null){
                     result.myReservations.forEach(e => {
-                        if(e.id>currentid){
-                            currentid = e.id;
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
                             temp.push(e);
                         }
                     });
                 }
                 result.myReservations = temp;
-            res.render("viewprofile", {active:'profile',email:email,data:result,position:result.position});
+            res.render("viewprofile", {active:'profile',email:email,data:result,position:position});
         }else{
             res.render('error',{error:'This user was not found.'});
         }

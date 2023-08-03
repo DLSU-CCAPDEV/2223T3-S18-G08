@@ -40,7 +40,7 @@ const techreserveController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.body.email;
+        var email = req.session.email;
         var student_email = req.body.student_email;
         var lab =  Number(req.body.lab);
         var date = Number(req.body.date);
@@ -86,12 +86,12 @@ const techreserveController = {
             var result = await db.findOne(User, user, projection);
             if (result != null){
                 result.active = "profile";
-                var currentid = 0;
+                var currentid = new Array();
                 var temp = new Array();
-                if(result.myReservations != null){
+                if(result.myReservations!=null){
                     result.myReservations.forEach(e => {
-                        if(e.id>currentid){
-                            currentid = e.id;
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
                             temp.push(e);
                         }
                     });
@@ -101,6 +101,8 @@ const techreserveController = {
             }else{
                 res.render('error',{error:'This user was not found.'});
             }
+        }else{
+            res.render('error',{error:'This user was not found.'});
         }
     }
 }

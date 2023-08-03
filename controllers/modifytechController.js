@@ -24,7 +24,7 @@ const modifytechController = {
         res.render("labtechnicianmodify", {active:'studentreserve',email:email,display:'false',position:position});
     },
     postModifyTech: async function (req, res) {
-        var email = req.body.email;
+        var email = req.session.email;
         var editing_email = req.body.find_email;
         var user = {
             email: email
@@ -42,16 +42,17 @@ const modifytechController = {
             result.editing_email = editing_email;
             result.position = position;
             result.display = 'true';
-            var temp = new Array();
-            if(result.myReservations!=null){
-                result.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid = e.id;
-                        temp.push(e);
-                    }
-                });
-            }
-            result.myReservations = temp;
+            var currentid = new Array();
+                var temp = new Array();
+                if(result.myReservations!=null){
+                    result.myReservations.forEach(e => {
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
+                            temp.push(e);
+                        }
+                    });
+                }
+                result.myReservations = temp;
             res.render("labtechnicianmodify", result);
         }else{
             res.render('error',{error:'This user was not found.'});

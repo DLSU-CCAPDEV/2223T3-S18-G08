@@ -83,8 +83,10 @@ function displayFreeSlots(users,email){
         } else {
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Taken by " + displayslots[i] + ")";
             table.rows[Math.floor(i/5)].cells[i%5].name = i;
-            var emailslots = emails[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value]
-            table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile(email,emailslots[Number(this.name)])};
+            if(displayslots[i]!="Anonymous"){
+                var emailslots = emails[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value]
+                table.rows[Math.floor(i/5)].cells[i%5].onclick = function() {viewProfile(email,emailslots[Number(this.name)])};
+            }
         }
     }
     

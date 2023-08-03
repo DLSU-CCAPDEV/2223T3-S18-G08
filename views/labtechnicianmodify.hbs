@@ -28,7 +28,7 @@
                         <td>
                             {{add1 @index}}. Lab {{add1 lab}}, {{getdate date}}, {{gettime time}} Created on: {{created}}
                         </td>
-                        <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{../email}}','{{id}}')"> Edit </a></td>
+                        <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{../editing_email}}','{{id}}')"> Edit </a></td>
                     </tr>
                     {{/each}}
                 </table>

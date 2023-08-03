@@ -31,7 +31,7 @@ const searchuserController = {
     */
     postSearch: async function (req, res) {
 
-        var email = req.body.email;
+        var email = req.session.email;
         var find_email = req.body.find_email;
         var user = {
             email: email

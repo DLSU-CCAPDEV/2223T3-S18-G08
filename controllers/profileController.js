@@ -29,17 +29,17 @@ const profileController = {
         console.log(result);
         if (result != null){
             result.active = "profile";
-            var currentid = 0;
-            var temp = new Array();
-            if(result.myReservations!=null){
-                result.myReservations.forEach(e => {
-                    if(e.id>currentid){
-                        currentid = e.id;
-                        temp.push(e);
-                    }
-                });
-            }
-            result.myReservations = temp;
+            var currentid = new Array();
+                var temp = new Array();
+                if(result.myReservations!=null){
+                    result.myReservations.forEach(e => {
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
+                            temp.push(e);
+                        }
+                    });
+                }
+                result.myReservations = temp;
             res.render("profile", result);
         }else{
             res.render('error',{error:'This user was not found.'});

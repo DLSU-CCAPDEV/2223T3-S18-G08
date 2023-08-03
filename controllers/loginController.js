@@ -27,12 +27,12 @@ const loginController = {
             if(Math.floor((now - check) / _MS_PER_DAY)<=24){
                 var response = await db.findOne(User,user,'email username description position myReservations password');
                 response.active = 'profile';
-                var currentid = 0;
+                var currentid = new Array();
                 var temp = new Array();
-                if(response.myReservations != null){
+                if(response.myReservations!=null){
                     response.myReservations.forEach(e => {
-                        if(e.id>currentid){
-                            currentid = e.id;
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
                             temp.push(e);
                         }
                     });

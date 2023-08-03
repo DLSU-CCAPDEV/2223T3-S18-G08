@@ -24,7 +24,7 @@ const deleteprofileController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.body.email;
+        var email = req.session.email;
         
         var user = {
             email:email
