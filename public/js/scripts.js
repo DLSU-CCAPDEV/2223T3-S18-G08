@@ -166,23 +166,23 @@ function getTime(t){
         case 2:
             return "11:00AM-11:30AM";
         case 3:
-            return "11:30AM-12:00AM";
+            return "11:30AM-12:00PM";
         case 4:
-            return "12:00AM-12:30AM";
+            return "12:00PM-12:30PM";
         case 5:
-            return "12:30AM-1:00AM";
+            return "12:30PM-1:00PM";
         case 6:
-            return "1:00AM-1:30AM";
+            return "1:00PM-1:30PM";
         case 7:
-            return "1:30AM-2:00AM";
+            return "1:30PM-2:00PM";
         case 8:
-            return "2:00AM-2:30AM";
+            return "2:00PM-2:30PM";
         case 9:
-            return "2:30AM-3:00AM";
+            return "2:30PM-3:00PM";
         case 10:
-            return "3:00AM-3:30AM";
+            return "3:00PM-3:30PM";
         case 11:
-            return "3:30AM-4:00AM";
+            return "3:30PM-4:00PM";
     }
 }
 
