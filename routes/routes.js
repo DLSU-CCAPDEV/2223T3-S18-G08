@@ -3,6 +3,7 @@ const express = require('express');
 const controller = require('../controllers/controller.js');
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
+const aboutController = require('../controllers/aboutController.js')
 const profileController = require('../controllers/profileController.js');
 const searchslotsController = require('../controllers/searchslotsController.js');
 const studentreserveController = require('../controllers/studentreserveController.js');
@@ -23,6 +24,8 @@ app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
 
 app.get('/logout',logoutController.getLogout);
+
+app.get('/about', aboutController.getAbout);
 
 app.get('/profile', profileController.getProfile);
 

@@ -56,6 +56,24 @@ body {
     text-decoration: none;
     font-size: 12px;
 }
+
+.topnav a#left {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 12px;
+}
+.topnav a.left {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
 .hide{
     display:none;
 }
