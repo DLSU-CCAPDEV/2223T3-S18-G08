@@ -43,7 +43,10 @@ const registerController = {
             email:email
         }
         let index = email.indexOf("@");
+<<<<<<< HEAD
         
+=======
+>>>>>>> 848f78e4e3c0747faa25d72c0334b5b01c7ca38b
         if ((email.substring(index, email.length) == "@dlsu.edu.ph")){
             var check = await db.findOne(User,usercheck,'email');
             if(await check == null){
