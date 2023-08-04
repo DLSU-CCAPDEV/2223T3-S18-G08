@@ -57,6 +57,7 @@ app.get('/getSearchUserCheckEmail', searchuserController.getSearchUserCheckEmail
 
 app.get('/techmodify',modifytechController.getModifyTech);
 app.post('/techmodifying',modifytechController.postModifyTech);
+app.post('/techdelete',modifytechController.postDeleteTech);
 app.get('/getModifyTechSearchUserCheckEmail', modifytechController.getModifyTechSearchUserCheckEmail);
 
 app.get('/techreserve',techreserveController.getSlots);
