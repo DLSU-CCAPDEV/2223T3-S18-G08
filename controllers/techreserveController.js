@@ -56,7 +56,7 @@ const techreserveController = {
         var old = await db.findOne(User, user, projection);
         var id = 1;
         if(old != null){
-            if(old.myReservations != null){
+            if(old.myReservations != null && old.myReservations.length != 0){
                 old.myReservations.forEach(e => {
                     reservations.push(e);
                 });

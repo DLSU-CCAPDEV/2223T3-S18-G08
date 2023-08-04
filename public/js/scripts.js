@@ -447,38 +447,44 @@ function editReserve(email,editing_email,id){
     hidden_form.submit();
 }
 function editreserved(email,editing_email,id){
-    // Create form
-    const hidden_form = document.createElement('form');
+    if(!(selectedSeats==null||selectedSeats.length==0)){
+        // Create form
+        const hidden_form = document.createElement('form');
 
-    // Set method to post by default
-    hidden_form.method = 'post';
-        
-    // Set path
-    hidden_form.action = '/studenteditedslot';
-        
-            const hidden_input0 = document.createElement('input');
-            hidden_input0.type = 'hidden';
-            hidden_input0.name = 'email';
-            hidden_input0.value = email;
-            const hidden_input1 = document.createElement('input');
-            hidden_input1.type = 'hidden';
-            hidden_input1.name = 'editing_email';
-            hidden_input1.value = editing_email;
-            const hidden_input2 = document.createElement('input');
-            hidden_input2.type = 'hidden';
-            hidden_input2.name = 'id';
-            hidden_input2.value = id;
-            const hidden_input6 = document.createElement('input');
-            hidden_input6.type = 'hidden';
-            hidden_input6.name = 'seat';
-            hidden_input6.value = JSON.stringify(selectedSeats);
+        // Set method to post by default
+        hidden_form.method = 'post';
+            
+        // Set path
+        hidden_form.action = '/studenteditedslot';
+            
+                const hidden_input0 = document.createElement('input');
+                hidden_input0.type = 'hidden';
+                hidden_input0.name = 'email';
+                hidden_input0.value = email;
+                const hidden_input1 = document.createElement('input');
+                hidden_input1.type = 'hidden';
+                hidden_input1.name = 'editing_email';
+                hidden_input1.value = editing_email;
+                const hidden_input2 = document.createElement('input');
+                hidden_input2.type = 'hidden';
+                hidden_input2.name = 'id';
+                hidden_input2.value = id;
+                const hidden_input6 = document.createElement('input');
+                hidden_input6.type = 'hidden';
+                hidden_input6.name = 'seat';
+                hidden_input6.value = JSON.stringify(selectedSeats);
 
-            hidden_form.appendChild(hidden_input0);
-            hidden_form.appendChild(hidden_input1);
-            hidden_form.appendChild(hidden_input2);
-            hidden_form.appendChild(hidden_input6);
+                hidden_form.appendChild(hidden_input0);
+                hidden_form.appendChild(hidden_input1);
+                hidden_form.appendChild(hidden_input2);
+                hidden_form.appendChild(hidden_input6);
 
 
-    document.body.appendChild(hidden_form);
-    hidden_form.submit();
+        document.body.appendChild(hidden_form);
+        hidden_form.submit();
+    }else{
+        document.getElementById("edit_error").style.display = "block";
+        document.getElementById("edit_error").children[0].innerHTML = "Must select atleast one slot";
+    }
+    
 }
