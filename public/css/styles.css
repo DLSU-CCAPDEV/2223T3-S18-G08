@@ -340,3 +340,9 @@ table, th, td {
     margin: 0;
     font-size: 12px;
 }
+
+#edit_error {
+    border: black;
+    border-width: 2px;
+    margin: 0;
+}

@@ -63,6 +63,51 @@ const modifytechController = {
         var email = req.query.email;
         var result = await db.findOne(User, {email: email}, 'email');
         res.send(result);
+    },
+    postDeleteTech: async function (req, res) {
+        var email = req.body.email;
+        var editing_email = req.body.editing_email;
+        var id =  Number(req.body.id);
+        var user = {
+            email:editing_email
+        };
+        var reservations = new Array();
+        var projection = 'email username description position myReservations';
+        var old = await db.findOne(User, user, projection);
+        if(old != null){
+            if(old.myReservations != null){
+                old.myReservations.forEach(e => {
+                    if(e.id != id){
+                        reservations.push(e);
+                    }
+                });
+            }
+            var change = {
+                myReservations:reservations
+            };
+            await db.updateOne(User,user,change);
+            var user = {
+                email:email
+            };
+            var result = await db.findOne(User, user, projection);
+            if (result != null){
+                result.active = "profile";
+                var currentid = new Array();
+                var temp = new Array();
+                if(result.myReservations!=null){
+                    result.myReservations.forEach(e => {
+                        if(!currentid.includes(e.id)){
+                            currentid.push(e.id);
+                            temp.push(e);
+                        }
+                    });
+                }
+                result.myReservations = temp;
+                res.render("profile", result);
+            }else{
+                res.render('error',{error:'This user was not found.'});
+            }
+        }
     }
 }
 

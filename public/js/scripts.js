@@ -72,10 +72,18 @@ function checkDateDiff(cdate){
     return Math.floor((now - check) / _MS_PER_DAY);
 }
 
-function displayFreeSlots(users,email){
-    updateSlots(users);
+async function displayFreeSlots(users,email){
+    var data;
+    fetch('/getdata').then(res => { 
+        // handle response 
+        data = JSON.stringify(res.data);
+  });
+    //data = JSON.stringify(data);
+    //const d = await data.json();
+    updateSlots(data);
     var displayslots = slots[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value];
     table = document.getElementById("slots");
+    console.log("displaying");
     for(i = 0; i < 20; i++){
         if(displayslots[i] == 0){
             table.rows[Math.floor(i/5)].cells[i%5].innerHTML = "Seat " + (i+1) + "\n(Free)";
@@ -446,6 +454,98 @@ function editReserve(email,editing_email,id){
     document.body.appendChild(hidden_form);
     hidden_form.submit();
 }
+
+function deleteReserve(email,editing_email,id,cdate,time){
+    const hidden_form = document.createElement('form');
+    const _MS_PER_DAY = 1000 * 60 * 60;
+    var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    var check = Date.UTC(new Date(cdate).getFullYear(), new Date(cdate).getMonth(), new Date(cdate).getDate());
+    console.log(now/ _MS_PER_DAY);
+    console.log(check/ _MS_PER_DAY);
+    Math.floor((now - check) % _MS_PER_DAY);
+    var hour = new Date(cdate).getHours;
+    var min = new Date(cdate).getMinutes;
+    var mhour,mmin
+    switch(time){
+        case 0:
+            mhour=10;
+            mmin=10;
+        break;
+        case 1:
+            mhour=10;
+            mmin=40;
+        break;
+        case 2:
+            mhour=11;
+            mmin=10;
+        break;
+        case 3:
+            mhour=11;
+            mmin=40;
+        break;
+        case 4:
+            mhour=12;
+            mmin=10;
+        break;
+        case 5:
+            mhour=12;
+            mmin=40;
+        break;
+        case 6:
+            mhour=1;
+            mmin=10;
+        break;
+        case 7:
+            mhour=1;
+            mmin=40;
+        break;
+        case 8:
+            mhour=2;
+            mmin=10;
+        break;
+        case 9:
+            mhour=2;
+            mmin=40;
+        break;
+        case 10:
+            mhour=3;
+            mmin=10;
+        break;
+        case 11:
+            mhour=3;
+            mmin=40;
+        break;
+    }
+    if ((hour < mhour)||(hour == mhour && min<mmin)){
+        // Set method to post by default
+        hidden_form.method = 'post';
+                
+        // Set path
+        hidden_form.action = '/studenteditslot';
+                const hidden_input0 = document.createElement('input');
+                hidden_input0.type = 'hidden';
+                hidden_input0.name = 'email';
+                hidden_input0.value = email;
+                const hidden_input1 = document.createElement('input');
+                hidden_input1.type = 'hidden';
+                hidden_input1.name = 'editing_email';
+                hidden_input1.value = editing_email;
+                const hidden_input2 = document.createElement('input');
+                hidden_input2.type = 'hidden';
+                hidden_input2.name = 'id';
+                hidden_input2.value = id;
+
+                hidden_form.appendChild(hidden_input0);
+                hidden_form.appendChild(hidden_input1);
+                hidden_form.appendChild(hidden_input2);
+
+
+        document.body.appendChild(hidden_form);
+        hidden_form.submit();
+    }
+    
+}
+
 function editreserved(email,editing_email,id){
     if(!(selectedSeats==null||selectedSeats.length==0)){
         // Create form
@@ -484,7 +584,7 @@ function editreserved(email,editing_email,id){
         hidden_form.submit();
     }else{
         document.getElementById("edit_error").style.display = "block";
-        document.getElementById("edit_error").children[0].innerHTML = "Must select atleast one slot";
+        document.getElementById("edit_error").innerHTML = "Must select atleast one slot";
     }
     
 }

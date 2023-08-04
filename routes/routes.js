@@ -43,6 +43,7 @@ app.post('/register', registerController.postRegister);
 app.get('/getRegisterCheckEmail', registerController.getRegisterCheckEmail);
 
 app.get('/searchslots',searchslotsController.getSlots);
+app.get('/getdata',searchslotsController.getData);
 
 app.get('/studentreserve',studentreserveController.getSlots);
 app.post('/studentreserved',studentreserveController.postSlots);

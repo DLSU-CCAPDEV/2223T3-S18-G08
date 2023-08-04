@@ -28,6 +28,10 @@ const searchslotsController = {
         res.render('searchslots',{email:email,position:position,data:data,active:'searchslots'});
         
     },
+    getData: async function (req, res){
+        var data = await db.findMany(User,{},'email username myReservations');
+        res.send(data);
+    }
 
 }
 
