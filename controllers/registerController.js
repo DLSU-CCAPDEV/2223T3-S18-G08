@@ -34,7 +34,7 @@ const registerController = {
             Example: the value entered in <input type="text" name="fName">
             can be retrieved using `req.body.fName`
         */
-        var email = req.session.email;
+        var email = req.body.email;
         var position = req.body.accounttype;
         var username = req.body.username;
         var password = req.body.password;
@@ -43,7 +43,7 @@ const registerController = {
             email:email
         }
         let index = email.indexOf("@");
-        if ((email.substring(index, email.length-1) == "@dlsu.edu.ph")){
+        if ((email.substring(index, email.length) == "@dlsu.edu.ph")){
             var check = await db.findOne(User,usercheck,'email');
             if(await check == null){
                 if(password == confirmpassword){
