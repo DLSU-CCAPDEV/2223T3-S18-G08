@@ -73,14 +73,7 @@ function checkDateDiff(cdate){
 }
 
 async function displayFreeSlots(users,email){
-    var data;
-    fetch('/getdata').then(res => { 
-        // handle response 
-        data = JSON.stringify(res.data);
-  });
-    //data = JSON.stringify(data);
-    //const d = await data.json();
-    updateSlots(data);
+    updateSlots(users);
     var displayslots = slots[document.getElementById("search_lab_num").value-1][document.getElementById("search_day_num").value][document.getElementById("search_time").value];
     table = document.getElementById("slots");
     console.log("displaying");
@@ -455,68 +448,9 @@ function editReserve(email,editing_email,id){
     hidden_form.submit();
 }
 
-function deleteReserve(email,editing_email,id,cdate,time){
+function deleteReserve(email,editing_email,id){
+        
     const hidden_form = document.createElement('form');
-    const _MS_PER_DAY = 1000 * 60 * 60;
-    var now = Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-    var check = Date.UTC(new Date(cdate).getFullYear(), new Date(cdate).getMonth(), new Date(cdate).getDate());
-    console.log(now/ _MS_PER_DAY);
-    console.log(check/ _MS_PER_DAY);
-    Math.floor((now - check) % _MS_PER_DAY);
-    var hour = new Date(cdate).getHours;
-    var min = new Date(cdate).getMinutes;
-    var mhour,mmin
-    switch(time){
-        case 0:
-            mhour=10;
-            mmin=10;
-        break;
-        case 1:
-            mhour=10;
-            mmin=40;
-        break;
-        case 2:
-            mhour=11;
-            mmin=10;
-        break;
-        case 3:
-            mhour=11;
-            mmin=40;
-        break;
-        case 4:
-            mhour=12;
-            mmin=10;
-        break;
-        case 5:
-            mhour=12;
-            mmin=40;
-        break;
-        case 6:
-            mhour=1;
-            mmin=10;
-        break;
-        case 7:
-            mhour=1;
-            mmin=40;
-        break;
-        case 8:
-            mhour=2;
-            mmin=10;
-        break;
-        case 9:
-            mhour=2;
-            mmin=40;
-        break;
-        case 10:
-            mhour=3;
-            mmin=10;
-        break;
-        case 11:
-            mhour=3;
-            mmin=40;
-        break;
-    }
-    if ((hour < mhour)||(hour == mhour && min<mmin)){
         // Set method to post by default
         hidden_form.method = 'post';
                 
@@ -542,7 +476,6 @@ function deleteReserve(email,editing_email,id,cdate,time){
 
         document.body.appendChild(hidden_form);
         hidden_form.submit();
-    }
     
 }
 

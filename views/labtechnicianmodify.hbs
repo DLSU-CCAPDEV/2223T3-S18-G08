@@ -25,14 +25,14 @@
             {{#ifCond display 'true'}}
             <div id = "search-result" style="border:2px solid; vertical-align: middle;">
                 <table class = "lab-reservations" style = "width: 100%; margin: auto;">
-                    <th colspan = "2"> Lab Reservations </th>
+                    <th colspan = "3"> Lab Reservations </th>
                     {{#each myReservations}}
                     <tr>
                         <td>
                             {{add1 @index}}. Lab {{add1 lab}}, {{getdate date}}, {{gettime time}} Created on: {{created}}
                         </td>
                         <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "editReserve('{{../email}}','{{../editing_email}}','{{id}}')"> Edit </a></td>
-                        <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "deleteReserve('{{../email}}','{{../editing_email}}','{{id}},{{created}},{{time}}')"> delete </a></td>
+                        <td style = "width: 4%; border:0px;"><a class = "button2" onclick = "deleteReserve('{{../email}}','{{../editing_email}}','{{id}}')"> delete </a></td>
                     </tr>
                     {{/each}}
                 </table>
