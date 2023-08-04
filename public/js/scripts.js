@@ -521,7 +521,7 @@ function deleteReserve(email,editing_email,id,cdate,time){
         hidden_form.method = 'post';
                 
         // Set path
-        hidden_form.action = '/studenteditslot';
+        hidden_form.action = '/techdelete';
                 const hidden_input0 = document.createElement('input');
                 hidden_input0.type = 'hidden';
                 hidden_input0.name = 'email';
