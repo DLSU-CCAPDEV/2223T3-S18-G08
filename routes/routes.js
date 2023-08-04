@@ -22,7 +22,7 @@ app.get('/', controller.getIndex);
 
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
-app.get('/getCheckEmail', loginController.getCheckEmail);
+app.get('/getLoginCheckEmail', loginController.getLoginCheckEmail);
 
 app.get('/logout',logoutController.getLogout);
 
@@ -41,6 +41,7 @@ app.post('/login', loginController.postLogin);
 
 app.get('/register', registerController.getRegister);
 app.post('/register', registerController.postRegister);
+app.get('/getRegisterCheckEmail', registerController.getRegisterCheckEmail);
 
 app.get('/searchslots',searchslotsController.getSlots);
 

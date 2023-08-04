@@ -43,10 +43,7 @@ const registerController = {
             email:email
         }
         let index = email.indexOf("@");
-<<<<<<< HEAD
         
-=======
->>>>>>> 848f78e4e3c0747faa25d72c0334b5b01c7ca38b
         if ((email.substring(index, email.length) == "@dlsu.edu.ph")){
             var check = await db.findOne(User,usercheck,'email');
             if(await check == null){
@@ -77,6 +74,12 @@ const registerController = {
         }else{
             res.render('error',{error:'This email is not a dlsu email.'});
         }
+    },
+
+    getRegisterCheckEmail: async function(req, res){
+        var email = req.query.email;
+        var result = await db.findOne(User, {email: email}, 'email');
+        res.send(result);
     }
 }
 

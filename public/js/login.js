@@ -5,7 +5,7 @@ $(document).ready(function () {
         var email = $('#email').val();
         let index = email.indexOf("@");
         if ((email.substring(index, email.length) == "@dlsu.edu.ph")){
-            $.get('/getCheckEmail', {email: email}, function (result) {
+            $.get('/getLoginCheckEmail', {email: email}, function (result) {
                 if(result.email == email) {
                     $('#email').css('background-color', 'white');
                     $('#email_error').text('');
