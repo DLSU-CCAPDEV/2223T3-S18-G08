@@ -22,7 +22,6 @@ app.get('/', controller.getIndex);
 
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
-app.get('/getLoginCheckEmail', loginController.getLoginCheckEmail);
 
 app.get('/logout',logoutController.getLogout);
 
@@ -53,11 +52,14 @@ app.post('/studenteditedslot',studenteditslotController.postSlots);
 
 app.get('/searchuser',searchuserController.getSearch);
 app.post('/searcheduser',searchuserController.postSearch);
+app.get('/getSearchUserCheckEmail', searchuserController.getSearchUserCheckEmail);
 
 app.get('/techmodify',modifytechController.getModifyTech);
 app.post('/techmodifying',modifytechController.postModifyTech);
+app.get('/getModifyTechSearchUserCheckEmail', modifytechController.getModifyTechSearchUserCheckEmail);
 
 app.get('/techreserve',techreserveController.getSlots);
 app.post('/techreserved',techreserveController.postSlots);
+app.get('/getTechReserveSearchUserCheckEmail', techreserveController.getTechReserveSearchUserCheckEmail);
 
 module.exports = app;

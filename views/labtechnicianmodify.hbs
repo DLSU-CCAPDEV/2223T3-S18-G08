@@ -4,6 +4,8 @@
         <title> Modify Student Reservations </title>
         <script type="text/javascript" src="/js/scripts.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/modifytech.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -18,7 +20,8 @@
             <p>Enter the email of the student whose reservation you will modify:</p>
             <label for="find_email"> Email of user: </label><br>
                 <input type="email" placeholder="Enter Email" id="find_email" name="find_email" required><br>
-                <input type="submit" onclick = "searchUserTech('{{email}}')" value = "Search user">
+                <p id = "searchuser_error"></p>
+                <input type="submit" id = "submit" onclick = "searchUserTech('{{email}}')" value = "Search user">
             {{#ifCond display 'true'}}
             <div id = "search-result" style="border:2px solid; vertical-align: middle;">
                 <table class = "lab-reservations" style = "width: 100%; margin: auto;">

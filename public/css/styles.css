@@ -336,7 +336,7 @@ table, th, td {
     
 }
 
-#email_error {
+#email_error, #confirmpassword_error, #searchuser_error{
     margin: 0;
     font-size: 12px;
 }

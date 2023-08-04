@@ -98,12 +98,6 @@ const loginController = {
         }else{
             res.render('error',{error:'This user was not found.'});
         }
-    },
-
-    getLoginCheckEmail: async function(req, res){
-        var email = req.query.email;
-        var result = await db.findOne(User, {email: email}, 'email');
-        res.send(result);
     }
 }
 module.exports = loginController;

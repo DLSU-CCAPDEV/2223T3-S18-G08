@@ -4,6 +4,8 @@
         <title> Reserve Slot for Student </title>
         <script type="text/javascript" src="/js/scripts.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/techreserve.js" type="text/javascript"></script>
     </head>
 
     <body onload='makeArray(3,9,12,20);'>
@@ -91,11 +93,12 @@
             <p>Enter the email of the student you are reserving for:</p>
             <label for="student_email"> Student email: </label><br>
             <input type="email" placeholder="Enter Email" id="student_email" name="student_email" required>
+            <p id = "searchuser_error"></p>
             <br>
             <input type="checkbox" id="reserveanonymously" name="reserveanonymously">
             <label for="reserveanonymously"> Reserve Anonymously </label><br>
 
-            <input type="submit" onclick = "reservetech('{{email}}')" value = "Reserve">
+            <input type="submit" id = "submit" onclick = "reservetech('{{email}}')" value = "Reserve">
         </div>
     </body>
 </html>
