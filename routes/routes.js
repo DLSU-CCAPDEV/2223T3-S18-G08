@@ -22,6 +22,7 @@ app.get('/', controller.getIndex);
 
 app.get('/index', controller.redirectIndex);
 app.get('/login', loginController.getLogin);
+app.get('/getCheckEmail', loginController.getCheckEmail);
 
 app.get('/logout',logoutController.getLogout);
 

@@ -3,6 +3,9 @@
     <head>
         <title> Login Form </title>
         <script type="text/javascript" src="/js/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/login.js" type="text/javascript"></script>
+
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
     </head>
 
@@ -19,11 +22,12 @@
             <form class="form-style" action="/login" method="post" >
                 <label for="email"> Email: </label><br>
                 <input type="email" placeholder="Enter Email" id="email" name="email" required><br>
+                <p id="email_error"></p>
                 <label for="password"> Password: </label><br>
                 <input type="password" placeholder="Enter Password" id="password" name="password" required><br>
                 <input type="checkbox" id="rememberme" name="rememberme">
                 <label for="rememberme"> Remember me </label><br>
-                <input type="submit" name = "submit" >
+                <input type="submit" id = "submit" name = "submit" >
             </form>
 
             <p>
