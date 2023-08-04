@@ -40,6 +40,7 @@ app.post('/login', loginController.postLogin);
 
 app.get('/register', registerController.getRegister);
 app.post('/register', registerController.postRegister);
+app.get('/getRegisterCheckEmail', registerController.getRegisterCheckEmail);
 
 app.get('/searchslots',searchslotsController.getSlots);
 
@@ -51,11 +52,14 @@ app.post('/studenteditedslot',studenteditslotController.postSlots);
 
 app.get('/searchuser',searchuserController.getSearch);
 app.post('/searcheduser',searchuserController.postSearch);
+app.get('/getSearchUserCheckEmail', searchuserController.getSearchUserCheckEmail);
 
 app.get('/techmodify',modifytechController.getModifyTech);
 app.post('/techmodifying',modifytechController.postModifyTech);
+app.get('/getModifyTechSearchUserCheckEmail', modifytechController.getModifyTechSearchUserCheckEmail);
 
 app.get('/techreserve',techreserveController.getSlots);
 app.post('/techreserved',techreserveController.postSlots);
+app.get('/getTechReserveSearchUserCheckEmail', techreserveController.getTechReserveSearchUserCheckEmail);
 
 module.exports = app;

@@ -4,6 +4,9 @@
         <title> Search User </title>
         <script type="text/javascript" src="/js/scripts.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/searchuser.js" type="text/javascript"></script>
+
     </head>
 
     <body>
@@ -18,7 +21,8 @@
             <p>Enter the email of the user you are searching for:</p>
             <label for="find_email"> Email of user: </label><br>
             <input type="email" placeholder="Enter Email" id="find_email" name="find_email" required><br>
-            <input type="submit" onclick = "searchUser('{{email}}')" value = "Search user">
+            <p id = "searchuser_error"></p>
+            <input type="submit" id = "submit" onclick = "searchUser('{{email}}')" value = "Search user">
             {{#ifCond display 'true'}}
                 <div id = "search-result" onclick="viewProfile('{{email}}','{{viewing_email}}')" style="border:2px solid; vertical-align: middle;">
                     <img id = "search-profile-picture" src="/image/profilepicture.jpg">
